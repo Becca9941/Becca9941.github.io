@@ -1,0 +1,171 @@
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+
+<a href="../index.html"><img class="logo" src="../img/devbecca.svg" alt=""></a>
+
+# Setting up github pages markdown website
+introduction
+table of contents
+1. **[Set up an empty Github pages repository on Github](#github-pages)**
+   * [Create a new github pages repository](#repo)
+   * [Name your repository](#name)
+   * [Mark your repository as 'public'](#public)
+2. **[Create a homepage and see it live on Github Pages (terminal)](#homepage)**
+   * [Clone your github pages repository.](#clone)
+   * [Add a markdown index page to your repository.](#index)
+   * [Stage your markdown index page to be committed.](#stage)
+   * [Commit your markdown index page.](#commit)
+   * [Push your file to your upstream repository (**READ THIS**)](#push)
+   * [Access your Github Pages markdown site](#access).
+
+***
+***
+### <a name="github-pages"></a>Set up a Github Pages repository on Github.
+***
+### <a name="repo"></a>Create a new repository
+To create a new repository on Github, you can click on the '+' button next to your profile image on the top right hand side of the screen.
+
+Then you can click the 'New repository' button which will bring you to the page where you configure your new repository with a name and privacy details etc.
+***
+### <a name="name"></a>Name your repository like this: 'username.github.io'
+Your username must exactly match the username associated with your Github account for this to work, case sensitive.
+***
+### <a name="public"></a>Select the 'public' option to mark your repository as public
+Your repo can be private, but the Github pages website itself will be publicly accessible to anyone who knows the link, which is easy to find out because it's just your username followed by github.io.
+***
+### Click on the green 'Create repository' button at the bottom of the page to finish creating your project.
+After creating your repository, you will be brought to your repositories home page. This page includes instructions for setting up your repository on your local machine. 
+
+If you want to create a static site with HTML pages, you can follow these instructions. Whereas, my instructions show you how to set up a static webpage using Markup files instead of HTML files. I also provide reasons for why you do things, as well as a few tips that should help make your life easier along the way.
+***
+***
+### <a name="homepage"></a>Create a homepage and see it live on Github Pages (terminal):
+
+*NOTE: I use the terminal, but you can also use the Github Desktop client if you prefer, instructions for both cases found here: [Github Pages Setup Instructions](https://pages.github.com/).*
+
+### Go to the folder where you want to store your repo.
+*NOTE: When you clone your github repository using the following instructions, it creates a folder that has the name of your project, so you don't need to create a folder to store it in first.*
+
+I store my project folders in the home directory. When you open up a fresh terminal, you are automatically in the home directory so you don't need to navigate anywhere else like the Desktop to find your folder.
+
+If you are in any other folder, you can navigate directly to the home directory by running the $`cd` command.
+***
+### <a name="clone"></a>Clone your Github Pages repository to your chosen folder:
+$`git clone https://github.com/username/username.github.io`
+***
+### Go inside your cloned folder:
+$`cd username.github.io`
+
+*TIP: Instead of typing out the full name of the folder you want to go inside, you can enter the first few characters and hit the 'Tab' key to autocomplete it.*
+***
+### <a name="index"></a>Add an index markdown page to your Github Pages repository.
+$`touch index.md`
+
+The index file is the home page of your website. We call it an 'index' file because it contains an index that people can use to look up places in your website that they want to visit.
+
+The '.md' extension tells your computer that your file is a markdown file.
+***
+### Open your index.md file and add a message to it.
+
+You message can be anything. When I first made a gitHub pages website, I wrote a standard, plain text 'Hello World!' message.
+
+This time, I wrote a heading with the name 'Developer Journal' using Markdown syntax (the standard syntax for README.md files). 
+
+Here are a couple of great Markup Language cheat sheets:
+
+* [Markdown guide (by the markdown developers)](https://www.markdownguide.org/cheat-sheet/)
+* [Markdown syntax && Github flavoured markdown](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf)
+
+
+| ASIDE: I use Vim to edit files (still in the learning curve phase), but that's just a personal preference. If interested, here are the commands I used to add a message to my index.md file: |
+| ----------- |
+| 1. **Open File:**
+|`vim index.md`|
+|*TIP: When you run this vim command, it first checks if there is already a file called index.md. If there is a file with that name it will open that file. If there isn't a file with that name Vim will create and open the file for you in one step, which means you don't need to create the file first using the touch command.*|
+|2. **Go into insert mode so that you can write to your file:**|
+|`i`|
+|3. **Write your message:**|
+|`# Developer Journal`|
+|4. **Go back to normal mode:**|
+|`<esc>`|
+|*TIP: I use `jj` to go back to normal mode from inside insert mode because it's a lot easier. I had to [configure Vim to allow me to do this](), which is one of the things I love about Vim that makes the learning curve worth it.*|
+|5. **Save and quit:**|
+|`:wq`|
+|*NOTE: I keep a running log of things I have learned how to do in Vim, which you can find [here](tools/vim.md) if you are interested.*|
+
+***
+### <a name="stage"></a>Stage your index.md file to be committed:
+`git add index.md`
+
+You could also have used `git add .` to add all of your files (in this case there is only one) to be committed.
+
+I would advise you not to do this for two reasons.
+1. If you add files this way on bigger projects you might accidentally add files that you don't want to commit.
+2. Or you might end up committing a lot of files with a single commit message, whereas committing them in smaller chunks will allow you to write more meaningful commit messages that express what you were doing better.
+***
+### <a name="commit"></a>Commit your file with a meaningful commit message:
+`git commit -m "home page available so that I can start sharing knowledge learned"`
+
+Most tutorials instruct you to write your first commit message as 'first commit'. The same tutorials tell you that the best commit messages explain why you have done something instead of how you did it, which is contradictory considering the first commit message does not explain why you are making the first commit.
+
+The first commit message is an ideal place to start explaining why you are starting your project. Again this is a personal preference, but one that makes my commit messages read like an interesting story that evolves over time with a meaningful narrative.
+
+*NOTE: You can stage files and commit them in one step by combining the command with the '&&' operator like this: `git add file.md && git commit -m "commit message"`*
+***
+### <a name="push"></a>Push your markdown homepage to your Github Pages:
+`git push origin master` NOT `git push -u origin master`
+
+*NOTE: One of the reasons I document everything I learn as I learn it is to make sure that other self-taught devs have access to the same information that I am priviledged to have access to. Hence the detailed explanations about 'why' we do things and what could go wrong with them.*
+
+At this point, most tutorials tell you to use `git push -u origin master` to push your changes to the upstream repository, but this command can cause unintended consequences that have been outlined below.
+
+Before we look at the consequences, I'll explain what the `git push -u origin master` command does. This explanation requires an understanding of the difference between a downstream and an upstream repository.
+
+* A downstream repository is a repository that we have copied, cloned or checked out. By cloning a repository, the information contained within the original repository has flowed downstream to us.
+* Whenever we make a change to our local repository that we want to share with a main repository (usually hosted on a version control server), we push our changes upstream.
+
+In the `git push -u origin master` command, we are saying
+
+>Push all of the changes we have made in our downstream repository (local copy) to our default upstream repository (that we are about to set).
+We want our default upstream repository to be the origin of our master branch, or in other words the location where we cloned our repository from.
+
+The `-u` flag sets the default upstream repository to whatever location is specified.
+
+After we have set our default repository, we no longer need to specify the repository that we want to push/pull our changes to/from. We can just use `git push/pull` instead of `git push/pull origin [branch]`.
+
+While setting the upstream repository seems convenient, it can cause problems depending on what version of Git you are using (especially versions < 2.0), and depending on how Git is configured in the git config file/s.
+
+*NOTE: You can check how Git is configured you can run `git config -l`. To find out what version of Git you are using, you can run `git --version`.*
+
+In Git versions before git 2.0, the default settings for 'git push' is to push all branches locally that have the same name on the upstream repository.
+
+#### Problem scenario:
+
+> You are on the master branch and you make a few changes only to realise that you meant to be on a different branch. So you switch to a different branch, make a few changes and push your changes. You forgot to reset your master branch before you pushed. As the master branch is known to the upstream repository, you have accidentally pushed changes. This is pretty difficult to undo.
+
+The good news is that in Git versions 2.0 and after, the default settings for 'git push' is to only push the branch you are currently working on (if it has the same name on the upstream), which is much better.
+
+That being said, even if the version is current, the Git config settings may have set the default push settings to match an earlier version's way of doing things (possibly because `git push/pull` appears to be more convenient and most tutorials don't teach the problems).
+
+**Chances are, you are not going to remember to check the version of Git being used or the config file settings for all of the repositories you are working on.**
+
+The safe option then is to push your changes using the following command every time you want to push changes to your upstream repository:
+
+`git push origin [branch]`
+
+Using this command means that you are always being explicit (and intentional) about the changes you are pushing to your upstream repository.
+
+You have now pushed your markdown homepage to your Github Pages repository.
+***
+
+### <a name="access"></a>Access your live Github Pages URL
+Open your browser and type in `https//username.github.io`
+
+If you try to access your Github Pages website straight away, you are likely to get a 404 error page. This is because it can take up to 10 minutes for your site to be 'built' and made live by Github.
+
+***
+***
+
+
+
+
+
