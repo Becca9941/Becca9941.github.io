@@ -1,5 +1,35 @@
 <link type="text/css" rel="stylesheet" href="../css/style.css"/>
+<link href="themes/prism.css" rel="stylesheet"/>
+<script src="themes/prism.js"></script>
 
 <a href="../index.html"><img class="logo" src="../img/devbecca.svg" alt=""></a>
 
 <h1>Building a skeleton web component with a shadow root</h1>
+
+<p>This is a web component skeleton that has a self contained DOM including HTML
+and styles that are not included in the flow of the light DOM. You can use the
+component in your main DOM by using the the tag we defined for it. In this case,
+the tag is <code class="language-html">&lt;bw-skeleton-component/&gt;</code>.
+
+<figure>
+  <figcaption>Skeleton Web Component</figcaption>
+  <pre>
+    <code class="language-javascript" contenteditable spellcheck="false">
+      class Component extends HTMLElement {
+        constructor() {
+          super();
+          this.attachShadow({ mode: 'open' });
+          this.shadowRoot.innerHTML = `
+            <style>
+                h1 {
+                  font-family: sans-serif;
+                }
+            </style>
+          `;
+        }
+      }
+
+      customElements.define('bw-skeleton-component');
+    </code>
+  </pre>
+</figure>
