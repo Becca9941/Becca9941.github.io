@@ -1,7 +1,8 @@
+figure {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: sans-serif;
-}
-.logo {
-  display: block;
-  margin: 0 auto;
 }
