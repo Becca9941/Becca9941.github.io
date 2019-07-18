@@ -6,3 +6,8 @@ figure {
 body {
   font-family: sans-serif;
 }
+
+.note {
+  font-style: oblique;
+  font-size: .8rem;
+}
