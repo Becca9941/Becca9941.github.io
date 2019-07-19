@@ -7,6 +7,11 @@ body {
   font-family: sans-serif;
 }
 
+.logo {
+  display: block;
+  margin: 0 auto;
+}
+
 .note {
   font-style: oblique;
   font-size: .8rem;
