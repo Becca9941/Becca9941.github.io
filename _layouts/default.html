@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Rebecca Williams">
+    <meta name="description" content="{{ page.description }}">
+    <meta name="keywords" content="{{ page.tags }}">
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Facebook card when shared -->
+    <meta property="og:image" content="{{ page.feature-img }}">
+    <meta property="og:description" content="{{ page.description }}">
+    <meta property="og:title" content="{{ page.title }}">
+
+    <!-- Twitter card when shared -->
+    <meta name="twitter:title" content="{{ page.title }}">
+
+    <title>{{ page.title }}</title>
+
+  </head>
+
+<body>
+
+  {{ content }}
+
+</body>
+
+</html>
