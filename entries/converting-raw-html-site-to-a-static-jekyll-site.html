@@ -51,11 +51,16 @@ command:</p>
 
 <p>Shows gem dependencies. Idended blocks are dependent on non-indented</p>
 
-<p>Check website displays on jekyll server
+<p>Check website displays on jekyll server</p>
 
 <code class="lang-bash">bundle exec jekyll serve</code>
 
 <p>Jekyll creates a _site folder, add that to your gitignore.</p>
+
+<p>NEW POST (but show HTML code here as part as tutorial) on writing a HTML boilerplate code and using it as a Jekyll
+template</p>
+
+<p>Explain liquid templating and content slot</p>
 
 <p>I want all of my pages and posts to have a doctype HTML boilerplate, but dont
 want to write it out myself every time I write a new post/page.</p>
@@ -78,6 +83,42 @@ used for filtering posts by tag name).</p>
      href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML">MDN
 documentation for HTML meta tags</a>
 
+<p>Open your index.html file and delete everything in it that isn't pure
+content.</p>
+
+<p>At the top of the file, you can add your boilerplate using Jekylls built in
+liquid templating system, include the following:</p>
+
+<figure>
+  <figcaption>Including boilerplate layout in home page</figcaption>
+  <pre>
+  <code class="lang-html"></code>
+    ---
+    title: Your page title
+    description: Your page description
+    keywords: Keywords/tags for your page
+    ---
+  </pre>
+  </code>
+</figure>
+
+<p>Create an About page in the root and include a brief paragraph explaining who
+you are. Include the layout and page information as front matter as you did for
+the index file</p>
+
+<figure>
+  <figcaption>Jekyll about page example</figcaption>
+  <pre>
+  <code class="lang-html">
+  ---
+  layout: default
+  title: About
+  description: About Becca
+  ---
+  <p>This page tells you a little about me</p>
+  </pre>
+  </code>
+</figure>
 
 <code class="lang-bash"></code>
 <code class="lang-bash"></code>
