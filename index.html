@@ -5,33 +5,27 @@ description: Devbecca is a live development journal. Follow along as the site it
 keywords: programming, developer, journal, design, code, snippets
 ---
 
-  <h1>Developer Journal</h1>
 
-  <p>I document most of the things I'm learning as I'm learning them. This
-  includes step by step installation commands, any advice/feedback, article
-  snippets and sources, questions I have etc. Your mind is for having ideas,
-  not for holding them - David Allen.</p>
+<h1>Developer Journal</h1>
 
-  <p class="note">This site has been purposely published in a raw state to begin
-  with, so that I can share (and discuss) each of the steps in the
-  decision-making process.
-  Also lets me share content without waiting until the site is 'finished'.</p>
+<p>I document most of the things I'm learning as I'm learning them. This
+includes step by step installation commands, any advice/feedback, article
+snippets and sources, questions I have etc. Your mind is for having ideas,
+not for holding them - David Allen.</p>
 
-  <p><a
-       href="entries/live-building-this-website-from-the-ground-up-tiny-baby-steps.html">Follow
-       Along as I Build this website LIVE from the ground up</a></li>
+<p class="note">This site has been purposely published in a raw state to begin
+with, so that I can share (and discuss) each of the steps in the
+decision-making process.
+Also lets me share content without waiting until the site is 'finished'.</p>
 
-  <details open>
-    <summary>JUL 2019</summary>
-    <ul>
-      <li><a
-            href="entries/interactions-between-characters-is-how-the-story-is-created.html">19th
-            ~ Ideas
-            I want to capture from work conversations. Messy, to be
-            edited.</a></li>
-      <li><a
-          href="entries/building-a-skeleton-web-component-with-a-shadow-root.html">19th ~ Building a skeleton web component with a shadow root</a></li>
-      <li><a href="entries/listen-for-changes-to-dom-attributes-nodes-content-with-mutation-observer.html">18th ~ Listen for changes to the DOM (attributes, adding/removing elements etc) and trigger behaviour with the JavaScript Mutation Observer.</a></li>
-       <li><a href="entries/setting-up-github-pages-for-a-static-developer-journal.html">17th ~ Setting up github pages for a static developer journal</a></li> </ul>
-  </details>
+<p><a href="/live-building-this-website-from-the-ground-up-tiny-baby-steps.html">Follow Along as I Build this website LIVE from the ground up</a></li>
 
+<h2>JUL 2019</h2>
+
+<ul>
+  {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url }}">{{ post.date | date: '%d' }} ~ {{ post.title }}</a>
+    </li>
+  {% endfor %}
+</ul>
