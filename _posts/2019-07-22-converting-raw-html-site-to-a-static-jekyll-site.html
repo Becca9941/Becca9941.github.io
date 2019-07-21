@@ -1,0 +1,301 @@
+---
+layout: post
+---
+
+<p>Make a Gemfile in the root level of your existing websites project foder</p>
+
+<p class="note">UNFINISHED: I'm literally just scribbling what I'm doing as I'm
+doing it. Afterwards, I go back and clean up code snippets and explanations. It
+usually takes me a week or so to fully write and edit a post. This is the
+in-progress 'raw' version.</p>
+
+<code class="lang-bash">touch Gemfile</code>
+
+<p>Open the Gemfile and include the following line at the top of the file</p>
+
+<code class="lang-bash">gem "Jekyll"</code>
+
+<p>Install jekyll and all of it's dependencies by running the following
+command:</p>
+
+<code class="lang-bash">bundle</code>
+
+<p>The bundle command does this thing...</p>
+
+<p>Researching installed thingies</p>
+
+<p>The bundle command installs 26 gems:<p>
+
+<ul>
+  <li><a href="#" target="_blank">public_suffix</a> which</li>
+  <li><a href="#" target="_blank">addressable</a></li>
+  <li><a href="#" target="_blank">bundler</a></li>
+  <li><a href="#" target="_blank">colorator</a></li>
+  <li><a href="#" target="_blank">concurrent-ruby</a></li>
+  <li><a href="#" target="_blank">eventmachine</a></li>
+  <li><a href="#" target="_blank">http_parser</a></li>
+  <li><a href="#" target="_blank">em-websocket</a></li>
+  <li><a href="#" target="_blank">ffi</a></li>
+  <li><a href="#" target="_blank">forwardable-extended</a></li>
+  <li><a href="#" target="_blank">i18n</a></li>
+  <li><a href="#" target="_blank">rb-fsevent</a></li>
+  <li><a href="#" target="_blank">rb-inotify</a></li>
+  <li><a href="#" target="_blank">sass-listen</a></li>
+  <li><a href="#" target="_blank">sass<a/></li>
+  <li><a href="#" target="_blank">jekyll-sass-converter</a></li>
+  <li><a href="#" target="_blank">ruby_dep</a></li>
+  <li><a href="#" target="_blank">listen</a>
+  <li><a href="#" target="_blank">jekyll-watch</a></li>
+  <li><a href="#" target="_blank">kramdown</a></li>
+  <li><a href="#" target="_blank">liquid</a></li>
+  <li><a href="#" target="_blank">mercenery</a></li>
+  <li><a href="#" target="_blank">pathutil<a/></li>
+  <li><a href="#" target="_blank">rouge</a></li>
+  <li><a href="#" target="_blank">safe_yaml</a></li>
+  <li><a href="#" target="_blank">jekyll</a></li>
+</ul>
+
+<p>Installing this also added a Gemfile.lock which...</p>
+
+<img src="#" alt="">
+
+<p>Shows gem dependencies. Idended blocks are dependent on non-indented</p>
+
+<p>Check website displays on jekyll server</p>
+
+<code class="lang-bash">bundle exec jekyll serve</code>
+
+<p>Jekyll creates a _site folder, add that to your gitignore.</p>
+
+<p>NEW POST (but show HTML code here as part as tutorial) on writing a HTML boilerplate code and using it as a Jekyll
+template</p>
+
+<p>Explain liquid templating and content slot</p>
+
+<p>I want all of my pages and posts to have a doctype HTML boilerplate, but dont
+want to write it out myself every time I write a new post/page.</p>
+
+
+<code class="lang-bash">mkdir _layouts && cd _layouts</code>
+<code class="lang-bash">touch default.html</code>
+
+<p>what does the layout folder do?</p>
+<p>Why is there an underscore prefixing the folder name?</p>
+<p>Why do we call the file 'default', can we call it something else?</p>
+
+<p>Boilerplate code HTML</p>
+
+<p>meta tags including: charset, author, description, image and description
+cards for facebook and twitter, a favicon, featured img, keywords (will also be
+used for filtering posts by tag name).</p>
+
+<a
+     href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML">MDN
+documentation for HTML meta tags</a>
+
+<p>Open your index.html file and delete everything in it that isn't pure
+content.</p>
+
+<p>At the top of the file, you can add your boilerplate using Jekylls built in
+liquid templating system, include the following:</p>
+
+<figure>
+  <figcaption>Including boilerplate layout in home page</figcaption>
+  <pre>
+  <code class="lang-html"></code>
+    ---
+    title: Your page title
+    description: Your page description
+    keywords: Keywords/tags for your page
+    ---
+  </pre>
+  </code>
+</figure>
+
+<p>Create an About page in the root and include a brief paragraph explaining who
+you are. Include the layout and page information as front matter as you did for
+the index file</p>
+
+<figure>
+  <figcaption>Jekyll about page example</figcaption>
+  <pre>
+  <code class="lang-html">
+  ---
+  layout: default
+  title: About
+  description: About Becca
+  ---
+  <p>This page tells you a little about me</p>
+  </pre>
+  </code>
+</figure>
+
+<p>Adding navigation to jekyll, should be a new post here</p>
+
+<p>new root folder called '_includes/' with file called 'navigation</p>
+
+<code class="lang-bash">mkdir _includes && cd _includes</code>
+
+<code class="lang-bash">touch navigation.html</code>
+
+<figure>
+  <figcaption>simple jekyll navbar</figcaption>
+  <pre>
+  <code>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/about.html">About</a>
+  </nav>
+  </code>
+  </pre>
+</figure>
+
+<p>To include navigation in your file, add the following to wherever you want
+yours to be in your default file. I write this as the first line inside the body</p>
+
+<code class="lang-html">{% include navigation.html %}</code>
+
+<p>Create a data directory with a file called navigation.yml</p>
+
+<code class="lang-bash">mkdir _data/navigation.yml</code>
+
+<p>Include the following</p>
+
+<figure>
+  <figcaption>Navigation data file</figcaption>
+  <pre>
+  <code class="lang-bash">
+    - name: Home
+      link: /
+    - name: About
+      link: /about
+  </code>
+  </pre>
+</figure>
+
+<p>This lets you iterate over each link to apply active styles to our
+navigation. Go back to your navigation file and add the following</p>
+
+<figure>
+  <figcaption>Add active style to navigation</figcaption>
+  <pre>
+  <code class="lang-html">
+    &lt;nav&gt;
+      {% for item in site.data.navigation %}
+        <a href="{{ item.link }}" {% if page.url == item.link %} class="current"
+        {% endif %}> {{ item.name }} </a>
+      { endfor %}
+    &alt;/nav&gt;
+  </code>
+  </pre>
+</figure>
+
+  <p>Add css to your site</p>
+
+
+<code class="lang-bash">mkdir assets cdd assets</code>
+<code class="lang-bash">mkdir css images js && cd css</code>
+<code class="lang-bash">touch styles.scss</code>
+
+<p>add following to style file</p>
+
+<figure>
+<figcaption>Adding CSS to jekyll site</figcaption>
+<pre>
+<code class="lang-css">
+  ---
+  ---
+  @import "main";
+
+  .current {
+    background-color: #1b1b1b;
+    color: white;
+    padding: .3rem .5rem;
+    border-radius: .3rem;
+  }
+</code>
+</pre>
+</figure>
+
+<p>Add link to stylesheet at top of default page</p>
+
+<code class="lang-html"><link type="text/css" rel=stylesheet"
+                              href="/assets/css/styles.css"></code>
+
+<p>added a link around my logo img to take you back to home page no matter where
+you are</p>
+
+<p>Adding posts to jekyll</p>
+
+<p>I already had a directory that stored all of my posts in called 'entries', so
+renamed that directory to _posts</p>
+
+<code class="lang-bash">mv entries _posts</code>
+
+<p>For each of the filenames add the publish date to the start of the
+filenames</p>
+
+<code class="lang-bash">mv filename.html 2019-07-22-filename.html</code>
+
+<p>specify layout is a post at top of each post</p>
+
+<figure>
+  <figcaption>Set layout to post</figcaption>
+  <pre>
+  <code class="lang-html">
+  ---
+  layout: post
+  ---
+  </code>
+  </pre>
+</figure>
+
+<p>Create a new layout file for posts in _layouts folder</p>
+
+<code class="lang-bash">cd _layouts && touch post.html</code>
+
+<p>I added my jekyll theme CSS and JS files to the post layout too, like
+this:</p>
+
+<figure>
+  <figcaption>Post layout</figcaption>
+  <pre>
+  <code class="lang-html">
+  ---
+  layout: default
+  ---
+
+  link type="text/css" rel="stylesheet" href="themes/prism.css">
+  script src="themes/prism.js"></script>
+
+  h1>{{ page.title }}</h1>
+
+  p>{{ page.date | date_to_string }}</p>
+
+  {{ xcontent }}
+
+  </pre>
+  </code>
+</figure>
+
+<p>Then I went through each of my posts and deleted the titles and prism script
+links</p>
+
+<p>List posts. Go onto the home page and write the following:</p>
+
+<figure>
+<figcaption>Loop through and display posts</figcaption>
+<pre>
+<code class="lang-html">
+ul>
+  { for post in site.posts %}
+    li>
+      a href="{{ post.url }}">{{ ost.date | date: '%d' }} ~ {{ ost.title }}</a>
+    </li>
+  {% endfor %}
+</ul>
+</code>
+</pre>
+</figure>
+
+
