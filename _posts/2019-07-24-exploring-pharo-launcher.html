@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Exploring Pharo Launcher
+title: Exploring Pharo World Menu and Language Overview
 ---
 
-<p>Notes are heavily based on Pharo by Example, a free book suggested by a Mooc
+<p>Notes are based on Pharo by Example, a free book suggested by a Mooc
 called <a
          href="https://www.canal-u.tv/producteurs/inria/cours_en_ligne/live_object_programming_in_pharo">Live
 Object Programming in Pharo</a></p>
@@ -135,7 +135,7 @@ order of evaluation.</p>
 
 <h4>Binary message examples</h4>
 
-<p>Binary messages are formatted like this: "and Object + anotherObject"</p>
+<p>Binary messages are formatted like this: "anObject + anotherObject"</p>
 
 <ul>
   <li><code class="lang-smalltalk">3 * 2.</code>Returns 6</li>
@@ -168,7 +168,7 @@ akey: anotherObject akey2: anotherObject2</p>
 <p>The semi colon is the cascade operator. It is used to send multiple messages
 to the same receiver.</p>
 
-<code class="lang-smalltalk"></code>ProfStef next; next.</code>
+<code class="lang-smalltalk">ProfStef next; next.</code>
 
 <p>The above code in the tutorial goes to the next page and then to the next
 page by sending two next messages to the same ProfStef object. This part of the
@@ -182,8 +182,6 @@ next".</p>
 <p>Blocks are anonymous methods that can be stored into variables and executed
 on demand. A block is contained within square brackets. Blocks are only executed
 when you send it a value message/s</p>
-
-<p>Blocks can be assigned variables that are executed later. For example:</p>
 
 <figure>
 	<figcaption>Block with variable</figcaption>
@@ -217,17 +215,68 @@ when you send it a value message/s</p>
 	<li>When the block is executed, it returns 14 (another integer object).</li>
 </ul>
 
-<code class="lang-smalltalk"></code>
-<code class="lang-smalltalk"></code>
-<code class="lang-smalltalk"></code>
-<code class="lang-smalltalk"></code>
-	<li><code class="lang-smalltalk"></code></li>
-	<li><code class="lang-smalltalk"></code></li>
-	<li><code class="lang-smalltalk"></code></li>
-	<li><code class="lang-smalltalk"></code></li>
-	<li><code class="lang-smalltalk"></code></li>
-	<li><code class="lang-smalltalk"></code></li>
-	<li><code class="lang-smalltalk"></code></li>
-	<li><code class="lang-smalltalk"></code></li>
-	<li><code class="lang-smalltalk"></code></li>
-	<li><code class="lang-smalltalk"></code></li>
+<h2>Conditionals</h2>
+
+<p>Conditionals are just messages that are sent to Boolean objects.</p>
+
+<figure>
+  <figcaption>Conditional example</figcaption>
+  <pre>
+  <code class="lang-smalltalk">
+  1 &lt; 2
+    ifTrue: [100]
+    ifFalse: [42].
+  </code>
+  </pre>
+</figure>
+
+<p>This is what is happening:</p>
+
+<ul>
+  <li>First we create a binary message (anObject + anotherObject), that returns
+   a True or False Boolean object depending on the result of the binary message
+   (in this case, is 1 less than 2).</li>
+  <li>This boolean object is then passed as a message to the ifTrue object which
+    returns 100 if the boolean object it received was True. If the boolean
+    object was not true, then it is passed to the ifFalse object which returns
+    42 if the object was False.</li>
+</ul>
+
+<h2>Loops</h2>
+
+<p>Loops are known as 'high level collection iterators' in the Smalltalk
+language. You can have to:do loops and to:by:do loops.</p>
+
+<p>The following example is a to:do loop which returns a list of numbers from 1
+to 100. Each number was converted to a string object in the process.</p>
+
+<code class="lang-smalltalk">1 to: 100 do: [:i | Transcript show: i asString;
+  cr].</code>
+
+<p>The following example is a to:by:do loop. This loop starts with the number
+100 and counts backwards by -2 until it gets to zero. The result is a list of
+even numbers from 100 to 0. Each number was converted to a string in the
+process.</p>
+
+<code class="lang-smalltalk">100 to: 0 by: -2: [:i | Transcript show: i
+  asString; cr].</code>
+
+<p>The message 'do:' is sent to a collection of objects (collections can be an
+Array, Set, OrderedCollection). The do: message evaluates the block that follows
+for each element in the collection.</p>
+
+<p>Here are a few more loop examples which replace the do: keyword messages with
+alternative keyword messages like ":collect", ":select" and ":reject".</p>
+
+<ul>
+  <li><code class="lang-smalltalk">#(11 38 3 -2 10) collect: [:each | each
+      odd].</code>returns the following array: #(true, false true false false).</li>
+  <li><code class="lang-smalltalk">#(11 38 3 -2 10) select: [:each | each
+      odd].</code>Returns the following array: #(11 3)</li>
+  <li><code class="lang-smalltalk">#(11 38 3 -2 10) select: [:each &gt;
+      10].</code>Returns the following array: #(11 38).</li>
+  <li><code class="lang-smalltalk">#(11 38 3 -2 10) reject: [:each | each &gt;
+      10].</code>Returns the following array: #(3 -2 10)</li>
+</ul>
+
+<p>unfinished</p>
