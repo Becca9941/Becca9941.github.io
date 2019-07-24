@@ -1,0 +1,233 @@
+---
+layout: post
+title: Exploring Pharo Launcher
+---
+
+<p>Notes are heavily based on Pharo by Example, a free book suggested by a Mooc
+called <a
+         href="https://www.canal-u.tv/producteurs/inria/cours_en_ligne/live_object_programming_in_pharo">Live
+Object Programming in Pharo</a></p>
+
+<p>Pharo by example requires a basic understanding of programming and
+object-oriented principles (rudimentary is okay). This book is focused around
+understanding the development environment itself, the Pharo language (based on
+Smalltalk) and tools. The focus is more on the technology than object-oriented
+design. That is taught in the MOOC linked to above.</p>
+
+<blockquote><em>Try not to care.</em> Beginning Smalltalk programmers often have
+  trouble because they think they need to understand all the details of how a
+  thing works before they can use it... One of the great leaps in OO is to be
+  able to answer the question "How does this work?" with "I don't
+  care".</blockquote>
+
+<p>The quote from the book book above hit me. The whole reason I started reading
+this book was because I wanted to understand the ins and outs of the Pharo
+environment.</p>
+
+<h2>Install and open the Pharo Launcher</h2>
+
+<p>I used Homebrew to install the Pharo launcher to my computer. I recorded what
+I did in a previous post called <a
+                                  href="2019-07-23-setting-up-smalltalk-developer-environment.html">Setting
+                                  up Pharo Smalltalk Developer
+                                  Environment</a>.</p>
+
+<p>When you install and open Pharo Lancher, you should get a GUI similar to
+this:</p>
+
+<img src="/assets/images/pharo-launcher.png" alt="pharo launcher home screen">
+
+<p>The first thing I did was download a new image (a virtual evironment with
+everything it needs to run). To do this, I selected "Pharo 6.0 (stable)" from
+the template menu on the left of the screen. Then I double clicked on
+"latest-64" because my computer has a 64bit processer (I asked for help with
+this part because I didn't know which template to choose). It'll then give you
+the option to change the image name. I kept the default name.</p>
+
+<p>Once you the template has downloaded, it will appear in the 'Current Images'
+panel on the right hand side of the screen. Double-clicking on that will open a
+window. After closing the welcome message window, the
+windew will look like this:</p>
+
+<img src="/assets/images/pharo-world-menu.png" alt="pharo World Menu upon
+opening">
+
+<p>Clicking anywhere on the screen will cause a menu to pop up on the screen,
+this menu is called the "World Menu". The World Menu contains a list of core
+tools like the System Browser, Playground, package manager etc.<p>
+
+<p>Right clicking anywhere on the screen bringn up a contextual menu that
+offers different sets of actions depending on where the mouse is pointing.</p>
+
+<p>Meta clicking (Shift-Option click) on Mac (Shift-control click) on Windows
+brings up handles that allow you to perform operations on items in your window.
+These are shown as little icons that you can click on. When you hover over them
+you can see their name.</p>
+
+<h2>Playing in the Playground</h2>
+
+<p>To get to the playground, click anywhere on the screen and select
+"Playground" from the dropdown menu. The playground can be used to quickly
+execute code (similar to the console in JavaScript or IRB in Ruby).</p>
+
+<p>Entering the following command and running it with Command-D will open an
+interactive Pharo Tutorial that will teach you the basics of Pharo.</p>
+
+<code class="lang-smalltalk">ProfStef go</code>
+
+<h2>Pharo basics tutorial commands</h2>
+
+<p>The following examples show you how to run commands, print commands and
+inspect commands, as well as what they do.</p>
+
+<p class="note">It looks like Smalltalk statements are finished with a
+fullstop.</p>
+
+<ul>
+  <li><code class="lang-smalltalk">GTPlayground open.</code> opens a new
+    playground window.</li>
+  <li><code class="lang-smalltalk">SmalltalkImage current aboutThisSystem</code>
+  brings up a window that gives you information about Pharo.</li>
+  <li><code class="lang-smalltalk">1 + 2.</code> Returns 3 when you print it to
+  the screen (Command-P)</li>
+  <li><code class="lang-smalltalk">Date today.</code> Returns 24 July 2019 (or
+    whatever the current date is).</li>
+  <li><code class="lang-smalltalk">Time now.</code> Returns the current time in
+  this format - 12:38:44.64634 pm</li>
+  <li><code class="lang-smalltalk">SmalltalkImage current datedVersion.</code>
+    Returns 'Pharo6.0 of 13 May 2016' (or the most recent version).</li>
+  <li><code class="lang-smalltalk">1/2.</code>Inspecting this using Command-I
+    brings up a window containing information about the object. The window
+    contains two tabs. The first tab is called "Raw", and contains information
+    about the variables contained within the object. In this case there are 3
+    variables: self = (1/2), numerator = 1, denominator = 2. In the "Meta" tab
+    we can see what types the object belongs to. In this case the types are:
+    Fraction, Number, Magnitude, Object, ProtoObject.</li>
+  <li><code class="lang-smalltalk">DateAndTime today.</code> When inspecting
+    this object, there is an additional tab called "Details" that shows a bunch
+  of key value pairs.</li>
+  <li><code class="lang-smalltalk">Float Pi.</code> When inspecting this object,
+  instead of a details tab there is a "Float" tab which also shows key value
+  pairs.</li>
+</ul>
+
+<h2>Messages</h2>
+
+<p>There are three types of messages in Smalltalk: Unary, Binary and
+keyword. Unary messages are executed first, then binary messages and finally
+keyword messages: Unary &gt; Binary &gt; Keywords. Messages that contain equal
+precedence are executed left to right unless parentheses are used to change the
+order of evaluation.</p>
+
+<h4>Unary message examples</h4>
+
+<p>Unary messages are formatted like this: "anObject aMessage"
+<ul>
+  <li><code class="lang-smalltalk">1 class.</code> Returns SmallInteger</li>
+  <li><code class="lang-smalltalk">false not.</code>Returns true</li>
+  <li><code class="lang-smalltalk">Time now.</code>Returns timestamp
+		(2:29:33.63093 pm)</li>
+  <li><code class="lang-smalltalk">Date today.</code>Returns todays date in this
+	format: 24 July 2019</li>
+  <li><code class="lang-smalltalk">Float pi.</code>Returns 3.141592653589793</li>
+  <li><code class="lang-smalltalk">"And of course:"</code>Didn't return anything</li>
+</ul>
+
+<h4>Binary message examples</h4>
+
+<p>Binary messages are formatted like this: "and Object + anotherObject"</p>
+
+<ul>
+  <li><code class="lang-smalltalk">3 * 2.</code>Returns 6</li>
+  <li><code class="lang-smalltalk">Date today + 3 weeks.</code>Returned 14
+		August 2019</li>
+  <li><code class="lang-smalltalk">false | false</code>Returned false</li>
+  <li><code class="lang-smalltalk">true & true.</code>Returned true</li>
+  <li><code class="lang-smalltalk">true & false.</code>Returned false</li>
+  <li><code class="lang-smalltalk">10 @ 100.</code>Returned (10@100)</li>
+  <li><code class="lang-smalltalk">10 $lt;= 12.</code>Returned true</li>
+	<li><code class="lang-smalltalk">'ab', 'cd'.</code>Returned 'abcd'</li>
+	<li><code class="lang-smalltalk">Date today &lt; Date
+			yesterday.</code>Returned false</li>
+</ul>
+
+<h4>Keyword message examples</h4>
+
+<p>Keyword messages are messages with arguments, they look like this: anObject
+akey: anotherObject akey2: anotherObject2</p>
+
+<ul>
+	<li><code class="lang-smalltalk">4 between: 0 and: 10.</code>Returned true.
+		This means: between 0 and 10 is the message sent to the 4 object.</li>
+	<li><code class="lang-smalltalk">1 max: 3.</code>Returns 3</li>
+	<li><code class="lang-smalltalk">Color r:1 g:0 b:0.</code>Returned Color red</li>
+</ul>
+
+<h4>Cascade operator</h4>
+
+<p>The semi colon is the cascade operator. It is used to send multiple messages
+to the same receiver.</p>
+
+<code class="lang-smalltalk"></code>ProfStef next; next.</code>
+
+<p>The above code in the tutorial goes to the next page and then to the next
+page by sending two next messages to the same ProfStef object. This part of the
+tutorial was confusing to me because a transcript example was used which made it
+difficult to figure out what was needed. I forgot that 'next' was the message
+and 'ProfStef' was the object so kept trying to write "ProfStef next; ProfStef
+next".</p>
+
+<h4>Blocks</h4>
+
+<p>Blocks are anonymous methods that can be stored into variables and executed
+on demand. A block is contained within square brackets. Blocks are only executed
+when you send it a value message/s</p>
+
+<p>Blocks can be assigned variables that are executed later. For example:</p>
+
+<figure>
+	<figcaption>Block with variable</figcaption>
+	<pre>
+	<code class="lang-smalltalk">
+	|b|
+	b := [:x | x+2].
+	b value: 12.
+	</code>
+	</pre>
+</figure>
+
+<p>This is what is happening:</p>
+
+<ul>
+	<li>First we create a variable named 'b' that does not have a value assigned
+		to it yet.<code class="lang-smalltalk">|b|</code>.</li>
+	<li>We use the <code class="lang-smalltalk">:=</code>to assign a block to our
+		b variable. A block is a method that is executed when it is given a
+		value.</li>
+	<li>We give our block (now contained in our b variable) a value of 12.
+		Everything in Smalltalk is an object, so 12 is an integer object.</li>
+	<li>Now that the block has a value, it executes. The left hand side of the
+		block statement is a placeholder for an object, so it becomes our 12
+		object.</li>
+	<li>The right hand side of the block statement is a message that we send to our
+		object (messages are methods that our object knows how to execute). In this
+		case, the message we are sending to our object is '+2'. If our object was a
+		string, then it wouldn't be able to accept the message because it doesn't
+		know how to add 2 to itself.</p></li>
+	<li>When the block is executed, it returns 14 (another integer object).</li>
+</ul>
+
+<code class="lang-smalltalk"></code>
+<code class="lang-smalltalk"></code>
+<code class="lang-smalltalk"></code>
+<code class="lang-smalltalk"></code>
+	<li><code class="lang-smalltalk"></code></li>
+	<li><code class="lang-smalltalk"></code></li>
+	<li><code class="lang-smalltalk"></code></li>
+	<li><code class="lang-smalltalk"></code></li>
+	<li><code class="lang-smalltalk"></code></li>
+	<li><code class="lang-smalltalk"></code></li>
+	<li><code class="lang-smalltalk"></code></li>
+	<li><code class="lang-smalltalk"></code></li>
+	<li><code class="lang-smalltalk"></code></li>
+	<li><code class="lang-smalltalk"></code></li>
