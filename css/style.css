@@ -11,8 +11,26 @@ body {
   font-family: sans-serif;
 }
 
+main {
+	width: 90%;
+	margin: 0 auto;
+}
+
 h1 {
   text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: #272727;
+	padding: .2rem;
+	border-radius: 5rem;
+}
+
+a:hover {
+  background: rgb(255,239,253);
+  background: linear-gradient(90deg, rgba(255,239,253,0.8477590865447742) 22%, rgba(255,254,241,1) 78%);
+	text-decoration: underline;
 }
 
 .logo {
@@ -23,4 +41,46 @@ h1 {
 .note {
   font-style: oblique;
   font-size: .8rem;
+}
+
+.intro {
+	width: 80%;
+	margin: 0 auto;
+}
+
+.title {
+	background-color: #9E005D;
+	color: white;
+	padding: .5rem;
+}
+
+/* Post List */
+
+.post-list {
+	all: unset;
+}
+
+.post-list__item {
+  list-style-type: none;
+	width: max-content;
+}
+
+.post-list__item > * {
+	vertical-align: middle;
+}
+
+.post-list__item time {
+  font-size: .7rem;
+  color: white;
+	background-color: #9E005D;
+	clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+	text-align: center;
+	float: left;
+	padding: .1rem .3rem 0 .3rem;
+	margin-right: .5rem;
+}
+
+.post-list__item h2 {
+	font-size: 1rem;
+	line-height: 1.5rem;
 }
