@@ -44,7 +44,7 @@ a:hover {
 }
 
 .intro {
-	width: 80%;
+  max-width: 800px;
 	margin: 0 auto;
 }
 
@@ -62,7 +62,6 @@ a:hover {
 
 .post-list__item {
   list-style-type: none;
-	width: max-content;
 }
 
 .post-list__item > * {
