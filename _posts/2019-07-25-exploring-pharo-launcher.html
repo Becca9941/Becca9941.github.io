@@ -79,3 +79,41 @@ interactive Pharo Tutorial that will teach you the basics of Pharo.</p>
                  href="2019-07-24-pharo-basic-language-examples-using-smalltalk.html">link</a>to
                some of the notes I took when following the Smalltalk basics
                tutorial.</p>
+
+<h2>Transcript</h2>
+
+<p>The Transcript is an object that is used for logging messages, like a system
+console. You can access it by clicking anywhere on the World, selecting "Tools"
+from the World Menu and then selecting "Transcript" from that.</p>
+
+<p>It's can be helpful to open your Playground and Transcript, then resize the
+windows so that they are both visible.</p>
+
+<p>To print a message to the Transcript, you can run Command-P after writing and
+selecting the following command:</p>
+
+<code class="lang-smalltalk">Transcript show: 'Hello World!'; cr.</code>
+
+<h2>Do it</h2>
+
+<p>You can run an expression by selecting it and using the Command-D shortcut.
+This will send the message to your object, but won't show the result anywhere
+because the Playground doesn't know what to do with it.</p>
+
+<h2>Print it</h3>
+
+<p>The print it command is similar to the do it command in that it evaluates the
+expression you have selected and run (this time with Command-P). The difference
+is that it prints the result of the expression besides the expression, and also
+to a Transcript object.</p>
+
+<h2>Inspect it</h3>
+
+<p>The inspect it comman allows you to browse and interact with any object in
+the system (Command-I). The title of the inspector tells you what class your
+object is an instance of. The top panel in the inspector lets you see the
+instance variables of an object as well as their values. You can use the bottom
+panel in the inspector to write messages and send expressions to the object.</p>
+
+
+
