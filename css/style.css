@@ -21,17 +21,18 @@ h1 {
 }
 
 a {
-  text-decoration: none;
-  color: #272727;
+  color: #9E005D;
 	padding: .2rem;
 	border-radius: 5rem;
 }
 
 a:hover {
+  color: #272727;
   background: rgb(255,239,253);
   background: linear-gradient(90deg, rgba(255,239,253,0.8477590865447742) 22%, rgba(255,254,241,1) 78%);
 	text-decoration: underline;
 }
+
 
 .logo {
   display: block;
@@ -82,4 +83,8 @@ a:hover {
 .post-list__item h2 {
 	font-size: 1rem;
 	line-height: 1.5rem;
+}
+
+.post-list__item a {
+  color: #272727;
 }
