@@ -1,5 +1,7 @@
 img {
- max-width: 100%;
+ max-width: 80%;
+ display: block;
+ margin: 0 auto;
 }
 
 figure {
@@ -55,6 +57,20 @@ a:hover {
 	padding: .5rem;
 }
 
+.post {
+  width: 70%;
+}
+
+@media only screen and (max-width: 800px) {
+  .post {
+    width: 90%;
+  }
+}
+
+.post__date {
+  text-align: center;
+}
+
 /* Post List */
 
 .post-list {
@@ -87,4 +103,12 @@ a:hover {
 
 .post-list__item a {
   color: #272727;
+}
+
+.small-img {
+  width: 10rem;
+}
+
+.medium-img {
+  width: 70%;
 }
