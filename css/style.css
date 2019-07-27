@@ -85,6 +85,7 @@ li {
 
 .post-list__item {
   list-style-type: none;
+  padding: 0;
 }
 
 .post-list__item > * {
