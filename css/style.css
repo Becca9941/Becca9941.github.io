@@ -1,7 +1,5 @@
 img {
- max-width: 80%;
- display: block;
- margin: 0 auto;
+  width: 100%;
 }
 
 figure {
@@ -22,6 +20,10 @@ h1 {
   text-align: center;
 }
 
+h1, h2, h3, h4, h5 {
+  text-transform: capitalize;
+}
+
 a {
   color: #9E005D;
 	padding: .2rem;
@@ -35,8 +37,12 @@ a:hover {
 	text-decoration: underline;
 }
 
+li {
+  padding-top: .5rem;
+}
 
 .logo {
+  width: 7rem;
   display: block;
   margin: 0 auto;
 }
