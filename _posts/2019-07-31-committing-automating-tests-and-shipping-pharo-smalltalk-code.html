@@ -5,7 +5,7 @@ categories: [dev environment, installation]
 tags: [Pharo, Smalltalk, GitHub, Tests, TDD, Shipping code]
 ---
 
-<p>UNFINISHED</p>
+<p>UNFINISHED - struggling with this, will have to try building a TDD program following an example</p>
 
 <p>I am currently working through a fantabulous online course (the first few sections are free) called <a href="https://online-training.jbrains.ca/p/wbitdd-01" target="_blank">The World's Best Intro To TDD</a> by <a href="https://twitter.com/jbrains" target="_blank">J.B. Rainsberger.</a></p>
 
@@ -35,11 +35,9 @@ tags: [Pharo, Smalltalk, GitHub, Tests, TDD, Shipping code]
 opened the "Pharo Launcher" application and double clicked on the "Pharo 6.0
 (stable) >> latest-64" image template to create a new <a
 	href="http://book.seaside.st/book/getting-started/pharo/what-is-image"
-	target="_blank">image</a> for my project, which I called "Hello-World". Double
+	target="_blank">image</a> for my project, which I called "Hello-World". It is a Double
 clicking on the Hello-World image brings up the World for your project where you
 can start playing with your code.</p>
-
-<h2>Writing your first test</h2>
 
 <p>Before we are able to write our first test, we need to set up a package for
 our project. To do this, we first need to bring up the "System Browser" using the
@@ -54,20 +52,39 @@ will be four panels along the top and a single panel spanning the lower half of
 the screen. The first panel contains a list of all the packages that are
 available for you to use within your project.</p>
 
-<p>We are going to create a new package by clicking on the packages panel and
-using the keyboard shortcut Command-n-p. We have named our package
-"Hello-World". If it isn't already selected, click on your new package to select
-it. The bottom panel of the system browser will then show a class template that
-you can use to create new classes for your project. We are now ready to save our
-project to version control.</p>
-
-<h2>Saving Pharo (Smalltalk) code to version control.</h2>
-
-<p>Next thing to set up (unfinished)</p>
 
 <h2>Writing your first test</h2>
 
 <p>We are going to write our first test BEFORE we write any code. This is a
 Test-Driven Development (TDD) style approach where we write a failing test
 first, then the simplest code we can to pass a test, and then refactor to remove
-duplication or to make our code more expressive of our intentions.</p>
+duplicationions.</p>
+
+<p>We are going to be writing tests in the style of Test-Driven Development (TDD), where we write a test before we write any code. There are three steps to this process:</p>
+
+<ol>
+  <li>Write a failing tests BEFORE you write any code</li>
+  <li>Write the simplest code you can to pass your test</li>
+  <li>Refactor your code to remove duplication/code smells etc</li>
+</ol>
+
+<h3>Creating our test class stub</h3>
+
+<p>To write our first test, we need to first click on the "Hello-World" package that we have just created. In the bottom panel of the Sytem Browser, you will see a class stub that you can use to set up your first failing test class.</p>
+
+<p>All we are going to do in this first test is check that we can create a new instance of our "Hello World" class. To name our test, replace the "#NameOfSubclass" text in the class stub with the name of the class you want to test, followed by the word "Test". The name will be written without any spaces, and in pascal case (upper case letters for the first letter of each word). We named our test "HelloWorldTest".</p>
+
+<p class="note">Naming our class in this way means that the your classes and tests for your classes will be shown together in alphabetical order in the package manager. This will make them easier to find and work with.</p>
+
+<p class="note">Usually, you would be writing a larger program with more than one class. It's generally unlikely that your class name will be the same of your package name. We are only building a simple "Hello World" program in this case which is why we are writing a single class with the same name as our package.</p>
+
+<p>We won't write any instance or class variable names for our class for this simple test. The package value should be the name of the package that our class will be a part of. Usually, this is automatically filled in for you in the class stub. If it isn't, then the package name should be "Hello-World".</p>
+
+<p>Saving our class stub with Command-S will create a new class inside of your package. This class will show up in the class panel to the right of the package panel. When we click on it, we will see the phrase "no messages" in the messages (methods) panel to the right of the class panel.</p>
+
+<h3>Write our first test method</h3>
+
+<p>Every time we write a new test for our test class, we need to create a new method with the name "testNameOfTest". The test method starts with the lowercase word "test" so that SUnit (Pharo's built in test suite) will know to collect them into test suites. It's important to know that test methods do not accept arguments.</p>
+
+<p>To create our first method, we click on the "no messages" text in the message panel. This will bring up a method stub just like it did when we clicked on the package to create a class. We renamed the name of this method from "messageSelectorAndArgumentsNames to "testHelloWorld".</p>
+
