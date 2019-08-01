@@ -36,6 +36,24 @@ tags: [Pharo, Smalltalk, Github, Tests, TDD, Shipping code]
 </ol>
   <img src="/assets/img/create-new-repo-github.png" class="medium-img" alt="creating new repo on GitHub">
 
-<h2>Start a new Pharo Project</h2>
+<h2>Create an empty Project in Pharo</h2>
+
+<ol>
+  <li>Open the 'Pharo Launcher' application and double click on the 'Pharo 6.0 (stable) &gt;&gt; latest-64' image template to create a new image for your project. I'm using a 64-bit Mac computer, which is why I chose this image template. An image is a snapshot of the current state of your program, including all of the packages, classes, methods and logic that have been added to it. When you open an image that you previously saved, it will look the same as when it did just before you closed it.</li>
+  <li>When prompted to name your image, I called mine "Unicorn rover". After naming your image, you will be able to double click on it. This will open the 'World' for your project where you can start building your project.</li>
+</ol>
+
+<h2>Set up version control for your Pharo project.</h2>
+
+  <ol>
+    <li>Clicking anywhere on your 'World' screen will bring up the 'World Menu'. Click on the 'Tools' option in the World Menu and then on 'Iceberg', which is one of two built-in version control managers for Pharo. I find this one more intuitive to use than 'Monticello', but have not used either enough to make a fair comparison at this stage.</li>
+    <img src="/assets/img/open-iceberg-pharo.png" class="medium-img" alt="opening iceberg version control manager in Pharo">
+    <li>Once you have clicked on 'Iceberg', a window will pop up showing you the repositories that are linked to your project. At the moment, there are no repositories linked. To add a repository, click on the green '+' button on the right-hand side of the menu bar. Then click on the 'Clone from github.com' option (there are options for adding repos from other version control managers like Gitlab and Gitbucket too).</li>
+    <li>Fill in your username and project name exactly as they appear of GitHub. Then select 'HTTP' or 'SSH' from the dropdown near the bottom of the form depending on which clone method you are using. I'm using 'HTTP'.</li>
+    <img src="/assets/img/location-of-repo-for-iceberg.png" class="medium-img" alt="specifying location of repo for iceberg in Pharo">
+    <li>Clicking on 'Ok' will clone your repository into Pharo. If successful, you should see your project name listed in the repositories list. The name of your repository will be green with a little asterisk next to it. The asterisk indicates that there are uncommitted changes to your repository. At the moment, we have nothing to commit, so next to the repository, there will also be red text that says 'No project found'. We are now ready to create our first package.</li>
+  </ol>
+
+
 
 <p>Writing in progress...</p>
