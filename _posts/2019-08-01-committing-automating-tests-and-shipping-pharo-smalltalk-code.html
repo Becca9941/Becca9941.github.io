@@ -88,4 +88,35 @@ tags: [Pharo, Smalltalk, Github, Tests, TDD, Shipping code]
 
 <h2>Pushing your code</h2>
 
+<p>It was tricky figuring out how to push code to the remote repository on Pharo. I accidentally stumbled upon the solution by spending a fair while exploring options. Google wasn't much help here.</p>
+
+<p>Our repository at the moment has a status written in red text that says "No project found". I started by double-clicking on that to bring up the list of packages that have been added to our repository for tracking. The only one in this list right now is the one that we added earlier, called 'Unicorn Rover'.</p>
+
+<p>I then clicked on the 'Repair' option on the far left of the toolbar menu, which showed the following message: "Cannot find a project in your repository. Please edit your repository meta-data to indicate the source code directory of change a location to a valid iceberg repository.</p>
+
+<p>The reason this message is showing is because our remote repository is completely empty, on purpose. We want our Pharo project code to be the content of our repository.</p>
+
+<img src="/assets/img/repair-repo-pharo.png" class="medium-img" alt="message shown by repair repo option">
+
+<p>Below the error message (known as critic text in Pharo, there are two options that Pharo provides to help you fix this problem. The one I chose was 'Create project meta-data'.</p>
+
+<p>When you click on this option, Pharo tells you that this creates a '.project' file in the root of your repostitory along with additional meta information such as src code directory, project name etc.</p>
+
+<p>Double-clicking on this option brings up a new window, which shows you a preview of what the file structure for your repository will be. Click 'Ok' to accept this.</p>
+
+<img scr="">
+
+<p>Once you have clicked 'Ok', your toolbar above your package will now show 5 additional options: push, pull, fetch, branch and merge. (happy danced at this moment!)</p>
+
+<p>Next to the 'push' option, there is a little red circle with an asterisk inside it. Hovering over the push option showed the following tooltip text "Pushes pending commits to the origin repository (in current branch).</p>
+
+<p>Clicking on the push button will bring up a preview of your push (including all of the individual commits). If you are happy with the preview, you can confirm it by clicking on the 'push' button at the bottom of this new window. You will be prompted for your GitHub username and password for your first push.</p>
+
+<img src="">
+
+<p>If you refresh your repository page on your Github account now, you should see your pharo package and code files. YAYYYY!</p>
+
+<img src="">
+
+
 <p>Writing in progress...</p>
