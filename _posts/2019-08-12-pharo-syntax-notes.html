@@ -17,11 +17,7 @@ tags: [pharo, smalltalk, blocks, closures, objects, messages, classes]
   <li>Closures are a central conerstone of the language which are the foundation for conditional statements and loops.</li>
 </ul>
 
-<h2>Objects / Classes</h2>
-
-<p>In Pharo, everything is an object and computation happens by sending messages to objects. Objects are created by sending messages to particular objects named classes, which define the structure and behaviour of the objects they create, also known as their instances.</p>
-
-<h2>Messages, blocks and methods</h2>
+<h2>Messages</h2>
 
 <p>Message syntax in Pharo is minimalist, but are central to all computations in Pharo. There are three kinds of messages: unary, binary and keyword-based messages.</p>
 
@@ -30,5 +26,49 @@ tags: [pharo, smalltalk, blocks, closures, objects, messages, classes]
 <code class="lang-smalltalk">'hello' reversed</code>
 
 <p>In the code sample above, the message 'reversed' is sent to a reciever, which is a string object containing the characters 'hello'. The output of this message sending is a new string with the same characters in reverse order.</p>
+
+<h3>Unary messages</h3>
+
+<p>Unary messages involve only one object (their reciever), and do not take any arguments.</p>
+
+<h3>Keyword messages</h3>
+
+<p>Keyword messages pass arguments to the reciever.</p>
+
+<code class="lang-smalltalk">'hello' at: 2</code>
+
+<p>The above keyword message sends the message 'at:' to the reciever string object along with an argument, which is an integer object. The reciever object then returns the character object at position 2.</p>
+
+<p>Keyword messages end with a colon to signify that it should be followed by an argument.</p>
+
+<p>Keyword messages can pass more than one argument. A single message can have as many colon terminated keywords as necessary, each followed by an argument.</p>
+
+<code class="lang-smalltalk">'hello' copyFrom: 1 to: 3</code>
+
+<p>In the example above, the keyword message is 'copyFrom: to:'. The output of the code is the first three characters of the reciever string object.</p>
+
+<h3>Binary Messages</h3>
+
+<p>Binary messages can only be composed of symbols. They only expect a single argument, even though they do not end in a colon.</p>
+
+<code class="lang-smalltalk">1 + 2</code>
+
+<p>The main use of binary messages is for arithmetic operations like in the example above where we have sent the message '+' to an integer with '2' as an argument. The code above returns an integer object with the value of 3.</p>
+
+<code class="lang-smalltalk">'Hello' , ' World!'</code>
+
+<p>There are some examples outside of arithmetic operations that use binary messages. In the example above, we sent the ',' message with the argument ' World!' to the reciever string object. The ',' message represents a string cocatenation message.</p>
+
+<h3>Order of message execution</h3>
+
+<p>Unary >> Binary >> Keyword</p>
+
+<h2>Objects / Classes</h2>
+
+<p>In Pharo, everything is an object and computation happens by sending messages to objects. Objects are created by sending messages to particular objects named classes, which define the structure and behaviour of the objects they create, also known as their instances.</p>
+
+<p>We can create a new object by sending a message to the class itself.</p>
+
+<code class="lang-smalltalk">String new</code>
 
 
