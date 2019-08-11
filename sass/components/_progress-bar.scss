@@ -1,0 +1,18 @@
+.progress {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba($brand-grey, .1);
+
+  .bar {
+    width: 1%;
+    height: 4px;
+    background: repeating-linear-gradient(
+      45deg,
+      white,
+      white, 4px,
+      $brand-purple 4px,
+      $brand-purple 8px,
+    );
+  }
+}

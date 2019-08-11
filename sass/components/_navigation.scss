@@ -1,0 +1,53 @@
+.navigation {
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  height: 6.5rem;
+  padding-top: .5rem;
+  z-index: 1000;
+
+  a {
+    background: none;
+  }
+
+  .social-media {
+    padding-left: .5rem;
+
+    i {
+      transition: color .3s ease;
+    }
+
+  }
+
+  .logo {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    width: 7rem;
+  }
+
+  .show-site-links {
+    background-color: white;
+    color: $brand-grey;
+    border: none;
+    outline: transparent;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    font-weight: bold;
+    height: 1.5rem;
+    cursor: pointer;
+    padding-right: .5rem;
+
+    &:hover span:first-child { color: $mint; }
+    &:hover span:nth-child(2) { color: $pink; }
+    &:hover span:nth-child(3) { color: $blue; }
+    &:hover span:last-child { color: $orange; }
+
+    span {
+      transition: color .3s ease;
+    }
+  }
+}
