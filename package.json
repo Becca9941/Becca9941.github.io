@@ -1,0 +1,24 @@
+{
+  "name": "devbecca",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "node-sass": "^4.12.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+    "compile:sass": "node-sass sass/main.scss css/style.css -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Becca9941/Becca9941.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Becca9941/Becca9941.github.io/issues"
+  },
+  "homepage": "https://github.com/Becca9941/Becca9941.github.io#readme"
+}
