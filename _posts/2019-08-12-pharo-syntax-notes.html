@@ -5,6 +5,8 @@ categories: [reading notes]
 tags: [pharo, smalltalk, blocks, closures, objects, messages, classes]
 ---
 
+<p>Notes are heavily bases on <a href="https://books.pharo.org/learning-oop/" target="_blank">Learning Object-Oriented Programming, Design and TDD with Pharo</a></p>
+
 <p>Pharo is a pure object-oriented language based on Smalltalk, the original object-oriented language developed by Alan Kay in the 1970s.</p>
 
 <h2>Key facts about Pharo</h2>
@@ -13,3 +15,20 @@ tags: [pharo, smalltalk, blocks, closures, objects, messages, classes]
   <li>The syntax of Pharo can fit on a single postcard. The sytax and language model is explained in <a href="http://files.pharo.org/media/pharoCheatSheet.pdf" target="_blank">two pages.</a></li>
   <li>The language is based on <strong>objects</strong>, <strong>messages</strong> and <strong>closures.</strong></li>
   <li>Closures are a central conerstone of the language which are the foundation for conditional statements and loops.</li>
+</ul>
+
+<h2>Objects / Classes</h2>
+
+<p>In Pharo, everything is an object and computation happens by sending messages to objects. Objects are created by sending messages to particular objects named classes, which define the structure and behaviour of the objects they create, also known as their instances.</p>
+
+<h2>Messages, blocks and methods</h2>
+
+<p>Message syntax in Pharo is minimalist, but are central to all computations in Pharo. There are three kinds of messages: unary, binary and keyword-based messages.</p>
+
+<p>In Pharo, messages are sent to a reciever, which is always to the left of the message. You can send different messages by using different message names (known as <em>selectors</em>.</p>
+
+<code class="lang-smalltalk">'hello' reversed</code>
+
+<p>In the code sample above, the message 'reversed' is sent to a reciever, which is a string object containing the characters 'hello'. The output of this message sending is a new string with the same characters in reverse order.</p>
+
+
