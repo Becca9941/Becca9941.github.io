@@ -63,6 +63,25 @@ tags: [pharo, smalltalk, blocks, closures, objects, messages, classes]
 
 <p>Unary >> Binary >> Keyword</p>
 
+<h3>Sending multiple messages to the same object</h3>
+
+<p>To send multiple messages to the same object in quick succession, we can group messages into a <em>message cascade</em>, which are seperated with semi-colons. When we do this, we only state the reciever once at the beginning of the cascade.</p>
+
+<pre>
+<code class="lang-smalltalk">
+| aStream |
+aStream := (String new: 100) writeStream.
+aStream
+  nextPutAll: 'Today, ';
+  nextPutAll: Date today printString;
+  contents
+</code>
+</pre>
+
+<p>In the example above we have created a variable called 'aStream' which is assigned a new String object that is passed a message selector called 'writeStream'. Then we send the 'aStream' reciever a series of three messages. The first two messages are keyword messages 'nextPutAll:', 'nextPutAll:' and a unary message 'contents'. The output of this cascade of messages is 'Today, 28 January 2017'.</p>
+
+<p>The cascade as a whole returns the value of it's last message. If the last message you send to the reciever is a selector called 'yourself', then it will return the object the messages were sent to. This is necessary when assigning elements to an array so that you get the array back and not just the last element that was assigned to it.</p>
+
 <h2>Objects / Classes</h2>
 
 <p>In Pharo, everything is an object and computation happens by sending messages to objects. Objects are created by sending messages to particular objects named classes, which define the structure and behaviour of the objects they create, also known as their instances.</p>
@@ -71,4 +90,27 @@ tags: [pharo, smalltalk, blocks, closures, objects, messages, classes]
 
 <code class="lang-smalltalk">String new</code>
 
+<p>In the example above, we are creating a new string object by sending the unary message 'new' to the reciever which is a 'String' class.</p>
 
+<h4>Literal Objects</h4>
+
+<p>Some objects can be expressed directly in the code without having to use the 'new' message.</p>
+
+<code class="lang-smalltalk">#(1 2 3)</code>
+
+<p>In the example above, we have created an Array object containing three integer objects '1, 2' and '3'.</p>
+
+<h2>Variables</h2>
+
+<p>Variables are declared by writing their names between two pipe lines.</p>
+
+<pre>
+<code class="lang-smalltalk">
+  | myKittensNameIs |
+  myKittensNameIs := 'Berry'.
+</code>
+</pre>
+
+<p>Variables can be assigned using the ':=' assignment statement. Statements are seperated by a full-stop, which makes Pharo code look like English sentences.</p>
+
+<p>Writing in progress...</p>
