@@ -5,7 +5,7 @@ categories: [kata]
 tags: [pharo, smalltalk, math, operators, numbers, integers]
 ---
 
-<p>Problem source: <a href="https://www.amazon.com/Programming-Challenges-Contest-Training-Computer/dp/0387001638" target="_blank">Programming Challenged: The Programming Contest Training Manual</a></p>
+<p>Problem source: <a href="https://www.amazon.com/Programming-Challenges-Contest-Training-Computer/dp/0387001638" target="_blank">Programming Challenges: The Programming Contest Training Manual</a></p>
 
 <blockquote>Start with an integer <em>n</em>. If <em>n</em> is even, divide by 2. If <em>n</em> is odd, multiply by 3 and add 1. Repeat this process with the new value of <em>n</em>, terminating when the value is 1. For an input <em>n</em>, the <em>cycle length</em> of <em>n</em> is the number of numbers generated up to and <em>including</em> the 1. The cycle length of 22 is 16. Given any two numbers <em>i</em> and <em>j</em>, you are to determine the maximum cycle length over all numbers between <em>i</em> and <em>j</em>, <em>including</em> both endpoints.</blockquote>
 
@@ -39,6 +39,7 @@ tags: [pharo, smalltalk, math, operators, numbers, integers]
 
 <ul>
   <li>If <em>n</em> is even, divide by two</li>
+  <li>If odd, multiply by 3 then add 1</li>
   <li>Stop after you have reached the end point</li>
   <li>Keep track of how many cycles there are up to and including the end point.</li>
 </ul>
