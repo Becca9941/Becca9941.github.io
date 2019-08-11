@@ -1,0 +1,32 @@
+.social-media {
+  width: max-content;
+  padding: 0; margin: 0;
+
+  li {
+    list-style-type: none;
+
+    &:first-child:hover a { color: $mint; }
+    &:nth-child(2):hover a { color: $pink; }
+    &:nth-child(3):hover a { color: $blue; }
+    &:last-child:hover a { color: $orange; }
+  }
+
+  a {
+    text-decoration: none;
+    color: $brand-grey;
+
+    &:hover { background: none; }
+
+  }
+
+  &__icon {
+    display: inline-block;
+    font-size: 2rem;
+
+    &:not(:last-child) {
+      margin-right: .5rem;
+    }
+
+  }
+
+}
