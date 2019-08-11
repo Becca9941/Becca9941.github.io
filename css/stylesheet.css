@@ -43,12 +43,6 @@ li {
   padding-top: .5rem;
 }
 
-.logo {
-  width: 7rem;
-  display: block;
-  margin: 0 auto;
-}
-
 .note {
   font-style: oblique;
   font-size: .8rem;

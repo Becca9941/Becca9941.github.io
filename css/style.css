@@ -1,0 +1,83 @@
+.social-media {
+  width: max-content;
+  padding: 0;
+  margin: 0; }
+  .social-media li {
+    list-style-type: none; }
+    .social-media li:first-child:hover a {
+      color: #9DFA94; }
+    .social-media li:nth-child(2):hover a {
+      color: #FFBAF3; }
+    .social-media li:nth-child(3):hover a {
+      color: #BAF2FF; }
+    .social-media li:last-child:hover a {
+      color: #FFC39F; }
+  .social-media a {
+    text-decoration: none;
+    color: #4d4d4d; }
+    .social-media a:hover {
+      background: none; }
+  .social-media__icon {
+    display: inline-block;
+    font-size: 2rem; }
+    .social-media__icon:not(:last-child) {
+      margin-right: .5rem; }
+
+.navigation {
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  height: 6.5rem;
+  padding-top: .5rem;
+  z-index: 1000; }
+  .navigation a {
+    background: none; }
+  .navigation .social-media {
+    padding-left: .5rem; }
+    .navigation .social-media i {
+      transition: color .3s ease; }
+  .navigation .logo {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    width: 7rem; }
+  .navigation .show-site-links {
+    background-color: white;
+    color: #4d4d4d;
+    border: none;
+    outline: transparent;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    font-weight: bold;
+    height: 1.5rem;
+    cursor: pointer;
+    padding-right: .5rem; }
+    .navigation .show-site-links:hover span:first-child {
+      color: #9DFA94; }
+    .navigation .show-site-links:hover span:nth-child(2) {
+      color: #FFBAF3; }
+    .navigation .show-site-links:hover span:nth-child(3) {
+      color: #BAF2FF; }
+    .navigation .show-site-links:hover span:last-child {
+      color: #FFC39F; }
+    .navigation .show-site-links span {
+      transition: color .3s ease; }
+
+.progress {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(77, 77, 77, 0.1); }
+  .progress .bar {
+    width: 1%;
+    height: 4px;
+    background: repeating-linear-gradient(45deg, white, white, 4px, #9e005d 4px, #9e005d 8px); }
+
+body {
+  margin: 0; }
+
+.hidden {
+  display: none; }
