@@ -246,4 +246,44 @@ tags: [css, sass, html, navigation menu, progress bar]
   <li>I added a transition for the color property on the social media icons and the menu button. This is a very subtle transition that makes the colors change a tiny bit slower than instantly, which is a better user experience even if most people won't actually pick up on it.</li>
 </ul>
 
+<h2>Mobile Responsive</h2>
+
+<p>Completely forgot to make my navigation bar mobile responsive, that is fixed now.</p>
+
+<h3>Navigation.scss</h3>
+
+<pre>
+<code class="lang-css">
+@media only screen and (max-width: 600px) {
+  .navigation {
+    height: 5rem;
+
+    .logo {
+      width: 5rem;
+    }
+
+    .show-site-links {
+      font-size: 1.3rem;
+    }
+  }
+}
+</code>
+</pre>
+
+<h3>Social-media.scss</h3>
+
+<pre>
+<code class="lang-css">
+@media only screen and (max-width: 600px) {
+  .social-media__icon {
+    font-size: 1.3rem;
+
+    &:not(:last-child) {
+      margin-right: .2rem;
+    }
+  }
+}
+</code>
+</pre>
+
 <p>That's it for the navigation menu. In the next post, I'll document my process for showing/hiding the pop-up menu of site links when you click on the menu button.</p>
