@@ -15,7 +15,105 @@ tags: [pharo, smalltalk, blocks, closures, objects, messages, classes]
   <li>The syntax of Pharo can fit on a single postcard. The sytax and language model is explained in <a href="http://files.pharo.org/media/pharoCheatSheet.pdf" target="_blank">two pages.</a></li>
   <li>The language is based on <strong>objects</strong>, <strong>messages</strong> and <strong>closures.</strong></li>
   <li>Closures are a central conerstone of the language which are the foundation for conditional statements and loops.</li>
+  <li>There are 6 reserved words</li>
+  <li>There are 15 syntactic constructs</li>
+  <li>Bodmas does not apply to mathematical operations in Pharo, message precedence determins the order. You have to use parentheses to enforce bodmas</li>
+  <li>Collections (e.g. arrays) start at 1, not 0</li>
 </ul>
+
+<table>
+  <tr>
+    <th>Reserved Words</th>
+  </tr>
+  <tr>
+    <td>nil</td>
+    <td>the undefined object</td>
+  </tr>
+  <tr>
+    <td>true, false</td>
+    <td>boolean objects</td>
+  </tr>
+  <tr>
+    <td>self</td>
+    <td>the receiver of the current message</td>
+  </tr>
+  <tr>
+    <td>super</td>
+    <td>the receiver, in the superclass context</td>
+  </tr>
+  <tr>
+    <td>thisContext</td>
+    <td>the current invocation on the call stack</td>
+  </tr>
+</table>
+
+<br>
+
+<table>
+  <tr>
+    <th>Reserved syntactic constructs</th>
+  </tr>
+  <tr>
+    <td>"comment"</td>
+    <td>comment</td>
+  </tr>
+  <tr>
+    <td>'string'</td>
+    <td>string</td>
+  </tr>
+  <tr>
+    <td>#symbol</td>
+    <td>unique string</td>
+  </tr>
+  <tr>
+    <td>$a, Character space</td>
+    <td>The character a and a space</td>
+  </tr>
+  <tr>
+    <td>12 2r1100 16rc</td>
+    <td>12 (decimal, binary, hexidecimal)</td>
+  </tr>
+  <tr>
+    <td>3.14 1.2e3</td>
+    <td>floating point numbers</td>
+  </tr>
+  <tr>
+    <td>#(abc 123)</td>
+    <td>literal array with the symbol #abc and the number 123</td>
+  </tr>
+  <tr>
+    <td>{foo . 3 + 2}</td>
+    <td>dynamic array built from two expressions</td>
+  </tr>
+  <tr>
+    <td>#[123 21 255]</td>
+    <td>byte array</td>
+  </tr>
+  <tr>
+    <td><em>expl. exp2</em></td>
+    <td>expression seperator (period)</td>
+  </tr>
+  <tr>
+    <td>;</td>
+    <td>message cascade (semicolon)</td>
+  </tr>
+  <tr>
+    <td>var := expression</td>
+    <td>assignment</td>
+  </tr>
+  <tr>
+    <td>^ expr</td>
+    <td>return a result from a method (caret)</td>
+  </tr>
+  <tr>
+    <td>[ :e | expr]</td>
+    <td>code block with a parameter</td>
+  </tr>
+  <tr>
+    <td>| var1 var2 |</td>
+    <td>declaration of two temporary variables</td>
+  </tr>
+</table>
 
 <h2>Messages</h2>
 
@@ -129,6 +227,7 @@ adder value: 100
 
 <p>I the code above, we create a variable called 'adder' and assign it a block which accepts a value which is stored in a variable we can give any name on the left hand side of the pipe. In the right hand pipe we are passing the message '+' to the reciever 'x' with an argument of '1'. This block add one to it's reciever that we pass in with the value message that accepts the argument which then becomes the reciever in the block.</p>
 
+
 <h2>Control Structures</h2>
 
 <p>Blocks are used to express all control structures like conditionals and loops.</p>
@@ -185,6 +284,25 @@ adder value: 100
 <p>The code above returns true if every element in the array is 'even'.</p>
 
 <p>In the last couple of examplse, we used a message called 'allSatisfy', which is one of many super powerful behaviours implemented in the Collection class. This one is known as an iterator. We defined this message in the first of the last two code examples.</p>
+
+<code class="lang-smalltalk">[ condition ] whileTrue; [ action. anotherAction]</code>
+
+<p>The above code is an example of how we would write a while loop in Pharo.</p>
+
+<h2>Files and streams</h2>
+
+<pre>
+<code class="lang-smalltalk">
+  work := FileSystem disk workingDirectory.
+  stream : (work / 'foo.txt') writeStream.
+  stream nextPutAll: 'Hello World'.
+  stream close.
+  stream : (work / 'foo.txt') readStream.
+  stream contents.
+  >>> 'Hello World'
+  stream close.
+</code>
+</pre>
 
 <p>With just the syntax outlined above, we can understand 95% of Pharo.</p>
 
