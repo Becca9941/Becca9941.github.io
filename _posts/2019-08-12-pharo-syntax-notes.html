@@ -113,4 +113,96 @@ aStream
 
 <p>Variables can be assigned using the ':=' assignment statement. Statements are seperated by a full-stop, which makes Pharo code look like English sentences.</p>
 
-<p>Writing in progress...</p>
+<h2>Blocks</h2>
+
+<p>Blocks (also known as lexical closures) are pieces of code to be executed later on. A block of code is surrounded by [ square brackets ].</p>
+
+<p>Blocks represent anonymous methods that can be sorted, passed as arguments and axecuded on demand using the message selector 'value', which we see in the following code:</p>
+
+<pre>
+<code class="lang-smalltalk">
+| adder |
+adder := [ :x | x + 1 ].
+adder value: 100
+</code>
+</pre>
+
+<p>I the code above, we create a variable called 'adder' and assign it a block which accepts a value which is stored in a variable we can give any name on the left hand side of the pipe. In the right hand pipe we are passing the message '+' to the reciever 'x' with an argument of '1'. This block add one to it's reciever that we pass in with the value message that accepts the argument which then becomes the reciever in the block.</p>
+
+<h2>Control Structures</h2>
+
+<p>Blocks are used to express all control structures like conditionals and loops.</p>
+
+<pre>
+<code class="lang-smalltalk">
+  n := 1.
+  10 timesRepeat: [ n := n * 2 ].
+  n
+</code>
+</pre>
+
+<p>In the code above, we are multiplying by 2 a number 10 times.</p>
+
+<p>Conditionals are expressed by sending one of the following messages: 'ifTrue:', 'ifFalse:'. 'ifTrue:ifFalse:', or 'ifFalse:ifTrue:' to the result of a boolean expression.</p>
+
+<pre>
+<code class="lang-smalltalk">
+  (17 * 13 > 220)
+    ifTrue: [ 'bigger' ]
+    ifFalse: [ 'smaller' ]
+</code>
+</pre>
+
+<p>The boolean expression at the start of the code above returns true or false depending on whether 17 * 13 is greater that 220. The message 'ifTrue:ifFalse' executes a different block of code depending on the result. If the result was true then in returns the string object 'bigger', otherwise it returns the string object 'smaller'.</p>
+
+<pre>
+<code class="lang-smalltalk">
+  allSatisfy: aBlock
+    self do: [:each | aBlock value: each) ifFalse: [^ false]].
+    ^ true
+</code>
+</pre>
+
+<p>In the code above, we have created a block message which returns false if one item in the block passed in as the reciever contains a value of 'false'. Otherwise it returns 'true'.</p>
+
+<pre>
+<code class="lang-smalltalk">
+  | count |
+  count := 0.
+  do: [:c | c == $i ifTrue: [count := count + 1]].
+  count
+</code>
+</pre>
+
+<p>The code above counts all of the 'i' characters in a givin string.</p>
+
+<pre>
+<code class="lang-smalltalk">
+  #(2 4 6 8 16 32) allSatisfy: [ :each | each even ]
+</code>
+</pre>
+
+<p>The code above returns true if every element in the array is 'even'.</p>
+
+<p>In the last couple of examplse, we used a message called 'allSatisfy', which is one of many super powerful behaviours implemented in the Collection class. This one is known as an iterator. We defined this message in the first of the last two code examples.</p>
+
+<p>With just the syntax outlined above, we can understand 95% of Pharo.</p>
+
+<h3>Further video resources</h3>
+
+<ul>
+  <li><a href="http://rmod-pharo-mooc.lille.inria.fr/MOOC/Videos/W1/C019SD-W1-S5-v2.mp4" target="_blank">Pharo syntax in a nutshell</a></li>
+  <li><a href="http://rmod-pharo-mooc.lille.inria.fr/MOOC/Videos/W2/C019SD-W2-S1-v3.mp4" target="_blank">Understanding messages</a></li>
+  <li><a href="http://rmod-pharo-mooc.lille.inria.fr/MOOC/Videos/W2/C019SD-W2-S2-v3.mp4" target="_blank">Pharo for the Java Programmer</a></li>
+  <li><a href="http://rmod-pharo-mooc.lille.inria.fr/MOOC/Videos/W2/C019SD-W2-S3-v3.mp4" target="_blank">Message Precedence</a></li>
+  <li><a href="http://rmod-pharo-mooc.lille.inria.fr/MOOC/Videos/W2/C019SD-W2-S3-v3.mp4" target="_blank">Sequence and cascade</a></li>
+  <li><a href="http://rmod-pharo-mooc.lille.inria.fr/MOOC/Videos/W2/C019SD-W2-S6-v2.mp4" target="_blank">Blocks</a></li>
+  <li><a href="http://rmod-pharo-mooc.lille.inria.fr/MOOC/Videos/W2/C019SD-W2-S7-v2.mp4" target="_blank">Loops</a></li>
+  <li><a href="http://rmod-pharo-mooc.lille.inria.fr/MOOC/Videos/W1/C019SD-W1-S6-v3.mp4" target="_blank">Class and Method Definition</a></li>
+  <li><a href="http://rmod-pharo-mooc.lille.inria.fr/MOOC/Videos/W3/C019SD-W3-S11-v1.mp4" target="_blank">Understanding the return</a></li>
+  <li><a href="http://rmod-pharo-mooc.lille.inria.fr/MOOC/Videos/W2/C019SD-W2-S9-v3.mp4" target="_blank">Parentheses</a></li>
+  <li><a href="http://rmod-pharo-mooc.lille.inria.fr/MOOC/Videos/W2/C019SD-W2-S10-v3.mp4" target="_blank">Yourself</a></li>
+  <li><a href="http://rmod-pharo-mooc.lille.inria.fr/MOOC/Videos/W3/C019SD-W3-S3-v3.mp4" target="_blank">Variables</a></li>
+  <li><a href="http://rmod-pharo-mooc.lille.inria.fr/MOOC/Videos/W3/C019SD-W3-S7-v3.mp4" target="_blank">Essential Collections</a></li>
+  <li><a href="http://rmod-pharo-mooc.lille.inria.fr/MOOC/Videos/W3/C019SD-W3-S9-v3.mp4" target="_blank">Iterators</a></li>
+</ul>
