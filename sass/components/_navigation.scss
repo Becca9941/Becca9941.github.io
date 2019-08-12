@@ -51,3 +51,17 @@
     }
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .navigation {
+    height: 5rem;
+
+    .logo {
+      width: 5rem;
+    }
+
+    .show-site-links {
+      font-size: 1.3rem;
+    }
+  }
+}

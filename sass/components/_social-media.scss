@@ -30,3 +30,13 @@
   }
 
 }
+
+@media only screen and (max-width: 600px) {
+  .social-media__icon {
+    font-size: 1.3rem;
+
+    &:not(:last-child) {
+      margin-right: .2rem;
+    }
+  }
+}

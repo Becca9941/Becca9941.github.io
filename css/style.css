@@ -23,6 +23,12 @@
     .social-media__icon:not(:last-child) {
       margin-right: .5rem; }
 
+@media only screen and (max-width: 600px) {
+  .social-media__icon {
+    font-size: 1.3rem; }
+    .social-media__icon:not(:last-child) {
+      margin-right: .2rem; } }
+
 .navigation {
   margin: 0;
   display: flex;
@@ -65,6 +71,14 @@
       color: #FFC39F; }
     .navigation .show-site-links span {
       transition: color .3s ease; }
+
+@media only screen and (max-width: 600px) {
+  .navigation {
+    height: 5rem; }
+    .navigation .logo {
+      width: 5rem; }
+    .navigation .show-site-links {
+      font-size: 1.3rem; } }
 
 .progress {
   position: absolute;
