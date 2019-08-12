@@ -324,3 +324,99 @@ adder value: 100
   <li><a href="http://rmod-pharo-mooc.lille.inria.fr/MOOC/Videos/W3/C019SD-W3-S7-v3.mp4" target="_blank">Essential Collections</a></li>
   <li><a href="http://rmod-pharo-mooc.lille.inria.fr/MOOC/Videos/W3/C019SD-W3-S9-v3.mp4" target="_blank">Iterators</a></li>
 </ul>
+
+<h2>Syntax Challenges</h2>
+
+<h3>Message Identification</h3>
+
+<p>For each of the messages below, identify the reciever object, the message selector, the argument/s and the result returned by the expression execution.</p>
+
+<code class="lang-smalltalk">3 + 4</code>
+<code class="lang-smalltalk">Date today</code>
+<code class="lang-smalltalk">#('' 'World') at: 1 put: 'Hello'</code>
+<code class="lang-smalltalk">#(1 22 333) at: 2</code>
+<code class="lang-smalltalk">#(2 33 -4 67) collect: [:each | each abs]</code>
+<code class="lang-smalltalk">20 @ 50</code>
+<code class="lang-smalltalk">SmallInteger maxVal</code>
+<code class="lang-smalltalk">#(a b c d e f) includesAll #(f d b)</code>
+<code class="lang-smalltalk">true | false</code>
+<code class="lang-smalltalk">Point selectors</code>
+
+<h2>Literal Objects</h2>
+
+<p>What kind of object does the following literal expressions return?</p>
+
+<code class="lang-smalltalk">1.3</code>
+<code class="lang-smalltalk">#node1</code>
+<code class="lang-smalltalk">#(2 33 4)</code>
+<code class="lang-smalltalk">'Hello, Berry'</code>
+<code class="lang-smalltalk">[ :each | each scale: 1.5 ]</code>
+<code class="lang-smalltalk">$A</code>
+<code class="lang-smalltalk">true</code>
+<code class="lang-smalltalk">1</code>
+
+<h2>Kind of messages</h2>
+
+<p>Are the following messages unary, binary or keyword-based?</p>
+
+<code class="lang-smalltalk">1 log</code>
+<code class="lang-smalltalk">Browser open</code>
+<code class="lang-smalltalk">2 raisedTo: 5</code>
+<code class="lang-smalltalk">10@20</code>
+<code class="lang-smalltalk">point1 x</code>
+<code class="lang-smalltalk">point1 distanceFrom: point2</code>
+
+<h2>Results</h2>
+
+<p>What is the value returned by the executions of the following expressions?</p>
+
+
+<code class="lang-smalltalk">1 + 3 negated</code>
+<code class="lang-smalltalk">1 + (3 negated)</code>
+<code class="lang-smalltalk">2 raisedTo: 3 + 2</code>
+
+<pre>
+<code class="lang-smalltalk">
+  | anArray |
+  anArray := #('first' 'second' 'third' 'fourth').
+  anArray at: 2
+</code>
+</pre>
+
+<code class="lang-smalltalk">#(2 3 -10 3) collect: [:each | each * each]</code>
+<code class="lang-smalltalk">6 + 4 / 2</code>
+<code class="lang-smalltalk">2 negated raisedTo: 3 + 2</code>
+<code class="lang-smalltalk">#(a b c d e f) includesAll: #(f d b)</code>
+
+<h3>Unneeded parentheses</h3>
+
+<p>Rewrite the following expressions using the least number of parentheses.</p>
+
+<code class="lang-smalltalk">x between: (pt1 x) and: (pt2 y)</code>
+
+<pre>
+<code class="lang-smalltalk">
+  (x isZero)
+    ifTrue: [...]
+  (x includes: y)
+    ifTrue: [...]
+</code>
+</pre>
+
+<pre>
+<code class="lang-smalltalk">
+  (OrderedCollection new)
+    add: 56;
+    add: 33;
+    yourself
+</code>
+<pre>
+
+<code class="lang-smalltalk">((3 + 4) + (2 * 2) + (2 * 3))</code>
+<code class="lang-smalltalk">(Integer primesUpTo: 64) sum</code>
+<code class="lang-smalltalk">('http://www.pharo.org' asUrl) retrieveContents</code>
+<code class="lang-smalltalk"></code>
+<code class="lang-smalltalk"></code>
+<code class="lang-smalltalk"></code>
+<code class="lang-smalltalk"></code>
+<code class="lang-smalltalk"></code>
