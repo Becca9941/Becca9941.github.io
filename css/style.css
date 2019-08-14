@@ -95,3 +95,14 @@ body {
 
 .hidden {
   display: none; }
+
+.introduction {
+  padding: .2rem;
+  vertical-align: middle; }
+  .introduction .dev-journal-img {
+    max-width: 20rem;
+    float: left; }
+
+@media only screen and (max-width: 600px) {
+  .introduction .dev-journal-img {
+    float: none; } }
