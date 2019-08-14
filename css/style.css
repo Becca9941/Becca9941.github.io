@@ -91,7 +91,8 @@
     background: repeating-linear-gradient(45deg, white, white, 4px, #9e005d 4px, #9e005d 8px); }
 
 body {
-  margin: 0; }
+  margin: 0;
+  color: #4d4d4d; }
 
 .hidden {
   display: none; }
