@@ -29,7 +29,7 @@ title: Testing objects for equality - Error, was given a £5 note, but was expec
 
   <p>This is because the equality method looked at the id for the first £5 note object (it's reference), and then compared it to the id for the second £5 note. Both of these objects have references that are unique to themselves, so because the references were different, the equality test failed.</p>
 
-  <p>The equality method is defined on the object class, which all other objects inherit from (in a statically typed, object-oriented language). The default equality method tests objects by their reference.</p>
+  <p>The equality method is typically defined on the object class, which all other objects inherit from (in an object-oriented language). The default equality method tests objects by their reference.</p>
 
   <p>We can override the default equality method by defining our own equality method. Whenever we call a method on an object, the compiler first looks to see if the method has been defined in the object class it is being called on. If it doesn't find it there, it will look to the super class to see if it has been defined there instead.</p>
 
@@ -47,7 +47,7 @@ title: Testing objects for equality - Error, was given a £5 note, but was expec
 
   <h3>What should we write in our equality method?</h3>
 
-  <p>Inside of our equality method, we want to return whether the amount value of this object is the same as the amount value in <em>another</em> object.</p>
+  <p>Inside of our equality method, we want to return whether the amount value of this object is the same as the amount value in <em>another</em> object of the same class.</p>
 
   <p>Earlier, we said that no object should be able to reach into another object and look at it's private state (instance variables). However, if we want these two objects to be 'equal' to each other, or in other words 'one and the same', then it makes sense that they should have access to their own state across each other.</p>
 
@@ -79,10 +79,12 @@ title: Testing objects for equality - Error, was given a £5 note, but was expec
 
   <pre>
   <code class="lang-smalltalk">
-    =
+    = other
       ^ amount == other amount
   </code>
   </pre>
+
+  <h4>Test assertion examples</h4>
 
   <p>After defining our equality method, we will be able to test that two different objects of the same class with the same values are equal to each other like in the following examples</p>
 
