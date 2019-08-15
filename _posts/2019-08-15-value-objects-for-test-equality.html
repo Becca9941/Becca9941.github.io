@@ -13,11 +13,34 @@ title: Testing objects for equality - Error, was given a £5 note, but was expec
 
 <p>In the <a href="https://pragprog.com/book/tpp20/the-pragmatic-programmer-20th-anniversary-edition" target="_blank">Pragmatic Programmer</a>, there is a story about a paper boy who knocks on your door and tells you that your paper amounts to £2. He then proceeds to open your wallet and takes your money without permission. This is a violation of your privacy (encapsulation). What the paper boy should have done is <em>tell</em> you that your paper cost £2. Then you could go into your own wallet, retrive your money and give it to him.</p>
 
-<p>Using a test assertion to compare the values of two objects is like a paperboy who reaches into your wallet, then reachies into your neighbours wallet to compare your cash.</p>
+<p>Using a test assertion to compare the values of two objects is like a paperboy who reaches into your wallet, then reaches into your neighbours wallet to compare your cash.</p>
 
-<p>The reason we write test assertions like this is because of an error message that shows up when you are trying to check that two objects we want to be recognised as the same:</p>
+<h2>Testing the equality of value objects</h2>
 
-<p><em>Error: Was given a £5 note, but was expecting a £5 note</em></p>
+<p>Before you test that two objects are the same, you want to first make sure that they can be compared as the same. While two £5 note objects make sense to be considered the same, it wouldn't make sense to compare two person objects who share a name as the same, even if they were also twins. They are fundamentally different people.</p>
 
-<p>We can resolve this error in a way that doesn't violate the encapsulation principle. After we have done this, we can write test assertions like this: "Expect this £5 note to be the same as this £5 note", which is what most of us naturally tried to do in the first place.</p>
+<p>Objects that we want to equate based on their values are called 'Value Objects' (<a href="https://martinfowler.com/bliki/ValueObject.html" target="_blank">see Martin Fowler</a>). In order to understand how to change the way these objects are tested, we first need to know how most testing frameworks test for object equality.</p>
 
+<h3>How are objects tested for equality?</h3>
+
+  <p>Most testing frameworks test object equality by looking at their references instead of the values that they contain. When we try to compare two objects that belong to the same class and have the same values, we get an error message that looks like the following:</p>
+
+  <p><em>Error: Was given a £5 note, but was expecting a £5 note</em></p>
+
+  <p>This is because the equality method looked at the id for the first £5 note object (it's reference), and then compared it to the id for the second £5 note. Both of these objects have references that are unique to themselves, so because the references were different, the equality test failed.</p>
+
+  <p>The equality method is defined on the object class, which all other objects inherit from (in a statically typed, object-oriented language). The default equality method tests objects by their reference.</p>
+
+  <p>We can override the default equality method by defining our own equality method. Whenever we call a method on an object, the compiler first looks to see if the method has been defined in the object class it is being called on. If it doesn't find it there, it will look to the super class to see if it has been defined there instead.</p>
+
+  <p>In other words, the equality method that we define will be called instead of the default equality method that our object would otherwise inherit from.</p>
+
+  <h3>Where should we define our equality method?</h3>
+
+  <p>We should define our equality method on the class of the object that we want to test by value. In this case, we would define a new equality method on our £5 note class.</p>
+
+  <p>Every time we want to test a new object by value, we have to define a new equality method for that class of object. Even if you have a large program, it is unlikely that you would want to compare many objects by their values. Even if you did, this is a better solution (practically and in principle) than reaching into objects and comparing their values manually every time you write a new test assertion for them.</p>
+
+  <h3>What should we write in our equality method?</h3>
+
+  <p>Writing in progress...</p>
