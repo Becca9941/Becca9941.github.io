@@ -41,6 +41,78 @@ title: Testing objects for equality - Error, was given a £5 note, but was expec
 
   <p>Every time we want to test a new object by value, we have to define a new equality method for that class of object. Even if you have a large program, it is unlikely that you would want to compare many objects by their values. Even if you did, this is a better solution (practically and in principle) than reaching into objects and comparing their values manually every time you write a new test assertion for them.</p>
 
+  <h3>Before we write our equality method</h3>
+
+  <p>Before we write our equality method, we need a way to access the values that we want to compare. On our £5 note class then, we would need to add an instance variable, which we might call 'amount' if we don't already have one.</p>
+
   <h3>What should we write in our equality method?</h3>
 
-  <p>Writing in progress...</p>
+  <p>Inside of our equality method, we want to return whether the amount value of this object is the same as the amount value in <em>another</em> object.</p>
+
+  <p>Earlier, we said that no object should be able to reach into another object and look at it's private state (instance variables). However, if we want these two objects to be 'equal' to each other, or in other words 'one and the same', then it makes sense that they should have access to their own state across each other.</p>
+
+  <p>The main thing we are trying to prevent here is other objects reaching into the £5 note objects to compare their value, which is what would happen if we compared their values within the test assertion instead of from within themselves.</p>
+
+  <p>The equality code we would write then would look something like this:</p>
+
+  <h4>JavaScript</h4>
+
+  <pre>
+  <code class="lang-javascript">
+    equals(other) {
+      return this.amount === other.amount;
+    }
+  </code>
+  </pre>
+
+  <h4>Ruby</h4>
+
+  <pre>
+  <code class="ruby">
+    def ==(other)
+      @amount == other.amount
+    end
+  </code>
+  </pre>
+
+  <h4>Pharo</h4>
+
+  <pre>
+  <code class="lang-smalltalk">
+    =
+      ^ amount == other amount
+  </code>
+  </pre>
+
+  <p>After defining our equality method, we will be able to test that two different objects of the same class with the same values are equal to each other like in the following examples</p>
+
+  <h4>JavaScript</h4>
+
+  <pre>
+  <code class="lang-javascript">
+    assert(fivePound1.equals(fivePound2));
+  </code>
+  </pre>
+
+  <h4>Ruby</h4>
+
+  <pre>
+  <code class="lang-ruby">
+    fivePound1.equal?(fivePound2)
+  </code>
+  </pre>
+
+  <h4>Pharo</h4>
+
+  <pre>
+  <code class="lang-smalltalk">
+    self assert: fivePound1 equals: fivePound2
+  </code>
+  </pre>
+
+  <h2>Further reading</h2>
+
+  <ul>
+    <li><a href="https://martinfowler.com/bliki/ValueObject.html" target="_blank">Martin Fowler: ValueObject</a></li>
+    <li><a href="https://medium.com/@nicolopigna/value-objects-like-a-pro-f1bfc1548c72" target="_blank">Nicolò Pignatelli: Value Objects Like a Pro</a></li>
+  </ul>
