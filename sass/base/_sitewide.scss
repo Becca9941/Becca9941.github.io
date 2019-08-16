@@ -11,6 +11,10 @@ body {
   padding: .2rem;
   vertical-align: middle;
 
+  p:first-of-type {
+    margin-top: .2rem;
+  }
+
   .dev-journal-img {
     max-width: 20rem;
     float: left;

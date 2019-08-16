@@ -100,6 +100,8 @@ body {
 .introduction {
   padding: .2rem;
   vertical-align: middle; }
+  .introduction p:first-of-type {
+    margin-top: .2rem; }
   .introduction .dev-journal-img {
     max-width: 20rem;
     float: left; }
