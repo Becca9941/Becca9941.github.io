@@ -22,10 +22,12 @@ body {
 
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 780px) {
   .introduction {
     .dev-journal-img {
       float: none;
+      max-width: 40rem;
+      margin-bottom: 2rem;
     }
   }
 }
