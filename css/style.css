@@ -40,7 +40,8 @@
   padding-top: .5rem;
   z-index: 1000; }
   .navigation a {
-    background: none; }
+    background: none;
+    border: none; }
   .navigation .social-media {
     padding-left: .5rem; }
     .navigation .social-media i {
@@ -89,6 +90,24 @@
     width: 1%;
     height: 4px;
     background: repeating-linear-gradient(45deg, white, white, 4px, #9e005d 4px, #9e005d 8px); }
+
+pre, code {
+  background-color: rgba(157, 250, 148, 0.2);
+  border: dashed 2px rgba(77, 77, 77, 0.4);
+  padding: 0 1rem;
+  overflow: scroll;
+  font-family: verdana;
+  font-weight: bold; }
+
+code {
+  padding: .5rem;
+  line-height: 2.2rem; }
+
+pre code {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  line-height: unset; }
 
 body {
   margin: 0;

@@ -1,6 +1,10 @@
 pre, code {
-  background-color: rgba($brand-purple, .1);
+  background-color: rgba($mint, .2);
   border: dashed 2px rgba($brand-grey, .4);
+  padding: 0 1rem;
+  overflow: scroll;
+  font-family: verdana;
+  font-weight: bold;
 }
 
 code {
@@ -11,6 +15,6 @@ code {
 pre code {
   border: none;
   background-color: transparent;
-  padding: none;
+  padding: 0;
   line-height: unset;
 }
