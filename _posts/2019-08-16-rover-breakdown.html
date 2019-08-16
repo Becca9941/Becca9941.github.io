@@ -1,0 +1,231 @@
+---
+layout: post
+title: Gizmo, a happy little Rover from the tiny red planet called "Objectlins" 
+---
+
+<p>Say hello to Gizmo, a happy little Rover from the tiny red planet called "Objectlins" where you are not allowed to feed objects messages after midnight, and you most certainly are NOT allowed to get them wet. No one can handle that many instances running around.</p>
+
+<p>Ever since Gizmo was instantiated, all 2.059 seconds ago, he has been responsible for managing 2 little objects. The thing he loves most about his job is being able to connect objects that work well together.</p>
+
+<p>Gizmo could already tell that these two objects were going to accomplish great things. They were very respectful of each other and never asked for things that didn't belong to them. They also took each of their single responsibilities very seriously. They would never ask the other object to do their work for them. This was going to be an easy job for him.</p>
+
+<p>The two objects in question are called North and Position. Each of them fit in a little drawer inside of Gizmo's heart. If the requirements were different, he could have been managing any of North's friends. It wouldn't be too long before he'd get to meet them too though, unless the requirements changed.</p>
+
+<p>The label on North's drawer is marked with the word "Orientation". Gizmo wondered which Pen object wrote the label. The handwriting was very neat.</p>
+
+<p>The orientation drawer itself was quite small, with room enough only for one. That was okay though, it wasn't meant to be a long-term dwelling. Objects never stayed long once they finished their job, they only had one thing to do after all.</p>
+
+<p>Gizmo thought that for this project, the Orientation drawer was likely to only get three other visitors: East, South and West. If the circumstances required, the drawer would also welcome visits from NorthEast, NorthWest, SouthEast and SouthWest. A cheerful idea, but as it was, they didn't exist yet, and it wasn't certain that they would. Gizmo chuckled at himself, daydreaming again.</p>
+
+<p>The position drawer also had a neatly written label, this time marked with the word "Position". If only he could write like that, but alas he was not a Pen object, but he was a happy little Rover object. This thought made him smile inside.</p>
+
+<p>Oh yes, the position drawer. This also had enough room for one object at a time. Conveniently, this object shared the same name as the drawer, which would make it easier for them to find the drawer. The turnover rate would likely be similar here too.</p>
+
+<p>Gizmo especially liked knowing that the behaviour of this object occupant (and it's successors) would be reliably the same. That being said, he could also appreciate the curious nature of the orientation objects, who all had little quirks of their own. This was going to be a fun job.</p>
+
+
+<h2>ROVER OBJECT</h2>
+
+<hr>
+
+<h3>State</h3>
+
+<hr>
+
+<pre>
+<code>
+  orientation
+    ^ orientation .
+</code>
+</pre>
+
+<pre>
+<code>
+  position
+    ^ orientation .
+</code>
+</pre>
+
+<pre>
+<code>
+  orientation: value
+    orientation := value .
+</code>
+</pre>
+
+<pre>
+<code>
+  position: value
+    position := value .
+</code>
+</pre>
+
+<h2>Class side initialization of state</h2>
+
+<pre>
+<code>
+position: coordinates orientation: direction
+  ^ self new
+  position: coordinates ;
+  orientation: direction ;
+  yourself .
+</code>
+</pre>
+
+<hr>
+
+<h3>Behaviour</h3>
+
+<hr>
+
+<pre>
+<code>
+  left
+    orientation := orientation left .
+</code>
+</pre>
+
+<pre>
+<code>
+  right
+    orientation := orientation left .
+</code>
+</pre>
+
+<pre>
+<code>
+  forward
+    position := orientation forwardsOf: position .
+</code>
+</pre>
+
+<h2>ORIENTATION OBJECTS: NORTH, EAST, SOUTH, WEST</h2>
+
+<hr>
+
+<h4>Behaviour</h4>
+
+<hr>
+
+<pre>
+<code>
+ left
+   ^ West new .
+</code>
+</pre>
+
+<pre>
+<code>
+  right
+    ^ East new .
+</code>
+</pre>
+
+<pre>
+<code>
+  forwardsOf: position
+    ^ position north .
+</code>
+</pre>
+
+<h2>POSITION OBJECT</h2>
+
+<hr>
+
+<h3>State</h3>
+
+<hr>
+
+<pre>
+<code>
+x
+  ^ x .
+</code>
+</pre>
+
+<pre>
+<code>
+x: value
+  x := value .
+</code>
+</pre>
+
+<pre>
+<code>
+y
+  ^ y .
+</code>
+</pre>
+
+<pre>
+<code>
+y: value
+  y := value .
+</code>
+</pre>
+
+<h3>Class side initialisation of state</h3>
+
+<pre>
+<code>
+x: x y: y
+  ^ (self new)
+  x: x ;
+  y: y ;
+  yourself .
+</code>
+</pre>
+
+<hr>
+
+<h3>Behaviour</h3>
+
+<hr>
+
+<pre>
+<code>
+north
+  ^ (self class: x: x y: y + 1) .
+</code>
+</pre>
+
+<pre>
+<code>
+east
+  ^ (self class x: x + 1 y: y) .
+</code>
+</pre>
+
+<pre>
+<code>
+south
+  ^ (self class x: x y: y - 1) .
+</code>
+</pre>
+
+<pre>
+<code>
+west
+  ^ (self class x: x - 1 y: y) .
+</code>
+</pre>
+
+<hr>
+
+<h3>Behaviour for testing</h3>
+
+<hr>
+
+<pre>
+<code>
+= other
+  ^ ( x = other x) & ( y = other y ) .
+</code>
+</pre>
+
+<pre>
+<code>
+printOn: aStream
+  aStream nextPutAll: 'Position(' , x asString , ',' , y asString , ')' .
+</code>
+</pre>
