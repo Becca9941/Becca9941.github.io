@@ -1,0 +1,16 @@
+pre, code {
+  background-color: rgba($brand-purple, .1);
+  border: dashed 2px rgba($brand-grey, .4);
+}
+
+code {
+  padding: .5rem;
+  line-height: 2.2rem;
+}
+
+pre code {
+  border: none;
+  background-color: transparent;
+  padding: none;
+  line-height: unset;
+}
