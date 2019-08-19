@@ -76,6 +76,14 @@ href="https://www.amazon.com/Growing-Object-Oriented-Software-Guided-Tests/dp/03
   <li>Refactor (remove duplication with the rule of three, simplify, etc)</li>
 </ol>
 
+<h3>Refactoring</h3>
+
+<p>Refactoring is where you improve code by changing it's structure without changing it's behaviour. This is similar to editing an article, where you change the way you phrase things without changing the underlying message that you are trying to convey.</p>
+
+<p>Changes that do not modify the codes behaviour is called a 'transformation' within the refactoring approach. There are many different transformations you can use when refactoring. Each of them are small, safe steps that can be verified with your tests to make sure that everything still works after each of them have been implemented.</p>
+
+<p>Refactoring is considered to be a 'microtechnique' that allows you to make a series of tiny improvements. If you do this consistently, then your system will be significantly improved. This is great advice for adopting any great habit too, tiny steps lead to massive change, almost without realising it.</p>
+
 <h3>Benefits of TDD</h3>
 
 <ul>
@@ -83,9 +91,12 @@ href="https://www.amazon.com/Growing-Object-Oriented-Software-Guided-Tests/dp/03
   <li>Encourages you to write components that can be tested in isolation (reduce dependencies - loosly coupled)</li>
   <li>The tests read like a list of specifications. It is a live snapshot of everything the system can do. Inside each test is the code that represents how you do the thing you are testing for in the real system.</li>
   <li>You'll have complete regression coverage, so you can make changes and knowthe moment something is broken. This makes things easy to undo, unlike discovering bugs later in the process.</li>
+  <li>Testing also lets us know when we have done enough, which happens when we have finished testing that a feature behaves in the way that we want it to in as many situations as we can anticipate. The tests will let us know when we encounter an unexpected situation that we didn't account for.</li>
 </ul>
 
 <h2>The bigger picture</h2>
+
+<p>A critical benefit of the TDD process is that it makes us write tests for code that we actually need (write a failing test first). This is an advantage over the dominant testing approach before TDD was introduced, which is where you would write unit tests for the classes in your application, usually well after the original code for those classes were written.</p>
 
 <h2>Testing end-to-end</h2>
 
