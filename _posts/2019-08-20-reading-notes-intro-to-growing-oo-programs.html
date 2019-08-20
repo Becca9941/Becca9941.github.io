@@ -102,8 +102,103 @@ href="https://www.amazon.com/Growing-Object-Oriented-Software-Guided-Tests/dp/03
 
 <p>When building a new feature, you first start with an <em>acceptance test</em>, which actually uses the functionality of the feature as if it was already built. This allows you to design the API of the feature in exactly the way that you want to use it, instead of the API being an accidental end product of the code.</p>
 
+<p>In the context of this book, acceptance tests are defined as things that help us and the domain experts to understand and agree on what to build next. They are also used to make sure that new features that are being built do not break ony of the existing features.</p>
+
+<p>Once we have written an acceptance test for the first time, it will fail because we won't have written any code to pass it. So the acceptance test demonstrates that the feature is not yet in place.</p>
+
+<p>When working on a feature, we only write code that is directly relevant to the code contained within the acceptance test.</p>
+
+<p>When writing code to make the acceptance test pass, we write unit tests that follow the test/implement/refactor cycle that is inherent in TDD.</p>
+
+<p>The acceptance test represents an outer feedback loop which is at the business language level. While the unit tests represent inner feedback loops which are at the technical level.</p>
+
+<p>As acceptance tests can take a while to make pass, it is useful to distinguish between the acceptance tests that we are working on and the acceptance tests that are for finished features, which must always pass. If there are a lot of developers working on different features, you need some way to know whether an acceptance test is failing because it is in progress or because it is currently being built.</p>
+
+<p>It is okay to commit failing acceptance tests to a working repository while they are in progress, but it is never okay to commit a failing unit test.</p>
+
 <h2>Testing end-to-end</h2>
+
+<p>Acceptance tests should test the functionality of the system without directly calling the internal code of the system. This means that the tests can send messages to different parts of the system, and those system parts will carry out those messages (if they understand them), without the test code having access to the internal mechanism that they use to carry out the message that they received.</p>
+
+<h3>Riskiest test</h3>
+
+<p>The behaviour of a system must interact with it's external environment. This is the riskiest and most difficult part of a system. So it's important to test this.</p>
+
+<h3>What does end-to-end testing involve?</h3>
+
+<ul>
+  <li>The end-to-end tests should exercise the system</li>
+  <li>They should also exercise the process by which the system has been <em>built</em> and <em>deployed</em></li>
+  <li>Tests run automatically whenever code is checked into the repository. These automatic tests will check:</li>
+  <ul>
+    <li>Check out the latest version</li>
+    <li>compile and unit-test the code</li>
+    <li>integrate and package the system</li>
+    <li>perform a production-like deployment into a realistic envioronment</li>
+    <li>Exercise the system through its external access points</li>
+  </ul>
+</ul>
+
+<p>All of this takes a lot of effort to automate, but all of these things have to be done repeatedly so automating them is a really good use of time. Especially as many of these steps are likely to be prone to error.</p>
+
+<p>A system is ready to deploy when all of the acceptance tests pass, because they give us confidence that everything works.</p>
+
+<h2>Levels of Testing</h2>
+
+<ul>
+  <li><strong>Acceptance:</strong> Does the whole system work?</li>
+  <li><strong>Integration:</strong> Does our code work against code we can't change?</li>
+  <li><strong>Unit:</strong> Do our objects do the right thing, and are they convenient to work with?</li>
+</ul>
+
+<p>In the context of this book, the term 'integration tests' is used to talk about tests that check how some of the code we have written works with code from outside of the team that we are not able to change. Examples of code that can be tested with integration tests are frameworks or libraries from another team within the same organisation.</p>
+
+<p>Integration tests make sure that any abstractions that are built over third-party code works as expected. They can also help us discover configuration issues that can occur when trying to integrate third party code.</p>
+
+<p>This book is mainly concerned with unit testing, because unit testing techniques are common to the object-oriented programming style.</p>
 
 <h2>External and internal quality</h2>
 
+<h3>External Quality</h3>
 
+<blockquote><em>External</em> quality is how well the system meets the needs of its customers and users (is it functional, reliable, available, responsive etc).</blockquote>
+
+<p>End-to-end tests allow us to test the quality of our system and how well the team have understood the domain they have built the software for.</p>
+
+<h3>Internal Quality</h3>
+
+<blockquote><em>Internal</em> quality is how well it meets the needs of its developers and administrators (is it easy to understand, easy to change, etc).</blockquote>
+
+<p>Internal quality is just as important (though more difficult to make a case for), because it is what lets us cope with regularly occurring, unexpected changes. Maintaining internal quality will allow us to safely make changes to how our system behavies. Otherwise, we could risk changes that force us to spend a lot of time reworking the system to accomodate for changes that could cause a lot of breakages if preventative measures were not put in place.</p>
+
+<p>Unit tests give us a lot of feedback about the quality of our code and to make sure that we haven't broken anything. However, unit tests do <em>not</em> give us enough confidence that the system as a whole works, which is why the other levels of testing are just as important even though they are not covered in this book.</p>
+
+<h3>Unit tests for objects</h3>
+
+<p>A unit test for an object needs to:</p>
+
+<ul>
+  <li>Create an object</li>
+  <li>Provide it's dependencies</li>
+  <li>Interact with it</li>
+  <li>Check that it behaves as expected</li>
+</ul>
+
+<p>For a class to be easy to unit test, it must:</p>
+
+<ul>
+  <li>Have explicit dependencies that can easily be substituted</li>
+  <li>Clear responsibilities that can easily be invoked and verified</li>
+  <li>(Must be loosely coupled and highly cohesive)</li>
+</ul>
+
+
+<p>If your code makes it difficult to write tests, this is the perfect opportunity to investigate why the test is hard to write and refactor the code to improve it's structure. The authors call this approach "Listening to the tests".</p>
+
+<h3>Coupling and cohesion</h3>
+
+<p>Coupling and cohesion are metrics that indicate how easy it will be to change the behaviour of your code.</p>
+
+<p>Elements are <em>coupled</em> if changes in one forces a change in another.</p>
+
+<p>An element's <em>cohesion</em> is also a metric to measure whether it's resposibilities form a meaningful unit. Are all of their messages and behaviour directly relevant to the object that holds them? You don't want to build a washing machine that washes both clothes and dishes (haha, well now I do).</p>
