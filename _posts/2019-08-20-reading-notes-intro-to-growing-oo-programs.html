@@ -8,6 +8,8 @@ href="https://www.amazon.com/Growing-Object-Oriented-Software-Guided-Tests/dp/03
    target="_blank">Growing Object-Oriented Software, Guided by Tests</a> by
  Steve Freeman and Nat Pryce</p>
 
+<p class="note">Most of the concepts I have written about are covered in the book, but they are worded and illustrated using my own examples. I capture the things that stand out as being most important (from my own perspective). If you read the book (it's great!) then you are likely to get insights that are unique to you.</p>
+
 <p>Test-driven development challenged the assumptions of the software industry when it was first introduced. Tests used to be thought of as a means to protect users from bugs in the products they were using. Whereas the test-driven approach views tests as a way to help developers better able to understand the needs of their users, as well as to help them produce those features more reliably.</p>
 
 <p>An interesting idea that the authors mentioned as an aside is that Test-driven development can be used to help us explore ideas in projects that are purely research-based, not intended for production. Am interested in exploring this.</p>
@@ -97,6 +99,8 @@ href="https://www.amazon.com/Growing-Object-Oriented-Software-Guided-Tests/dp/03
 <h2>The bigger picture</h2>
 
 <p>A critical benefit of the TDD process is that it makes us write tests for code that we actually need (write a failing test first). This is an advantage over the dominant testing approach before TDD was introduced, which is where you would write unit tests for the classes in your application, usually well after the original code for those classes were written.</p>
+
+<p>When building a new feature, you first start with an <em>acceptance test</em>, which actually uses the functionality of the feature as if it was already built. This allows you to design the API of the feature in exactly the way that you want to use it, instead of the API being an accidental end product of the code.</p>
 
 <h2>Testing end-to-end</h2>
 
