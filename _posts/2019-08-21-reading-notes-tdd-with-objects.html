@@ -71,4 +71,24 @@ title: Reading-notes - Test-Driven Development with Objects
 
 <h2>Unit testing the collaborating objects</h2>
 
+<p>An object-oriented program consists of objects that can only interact with each other by sending messages to each other. </p>
+
+<p>When we have objects that only communicate with each other by sending messages to each other, the focus of unit testing changes to reflect that.</p>
+
+<p>The main focus of our test becomes making sure that objects communicate with each other as we expect them too. We can test this by making sure that it's collaborators have received the messages they are expecting to receive.</p>
+
+<p>As the focus is on testing how our target object communicates with each other, we don't actually need it's collaborators to exist inside of the unit tests themselves. Instead, we replace the collaborators with mock objects that implement only the behaviour that is needed to make the test pass.</p>
+
 <h2>Support for TDD with Mock Objects</h2>
+
+<p>The steps that are involved in writing a test with mock objects are:</p>
+
+<ul>
+  <li>Create any required mock objects</li>
+  <li>Create any real objects, including the target object</li>
+  <li>Specify how you <em>expect</em> the mock objects to be called by the target object.</li>
+  <li>Call the triggering method(s) on the target object.</li>
+  <li>Asserct that the resulting values are valid and that all the expected calls have been made.</li>
+</ul>
+
+<p>The authors say that the most important thing is making <q>clear the intention of every test, distinguishing between the tested functionality, the supporting infrastructure, and the object structure.</q></p>
