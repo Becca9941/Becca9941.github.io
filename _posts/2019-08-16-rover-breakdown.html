@@ -129,13 +129,39 @@ title: Gizmo, a happy little Rover from the tiny red planet called "Objectlins"
 
 <p>The message that West received from Gizmo tells her to return the position that is directly in front of her.</p>
 
-<p>If North were here....writing in progress</p>
+<p>If North were here, then the position that he would end up returning would be different, because the orientation determines what is in front. This is why Gizmo sent the message to West, because she has to let Position know who he is working with in order for him to be able to do his job.</p>
 
-<p>West opened her "forwardsOf: position envelope and started her role in this collaboration. It was her turn to write a message, which she would then pass to position.</p>
+<p>All west needed to do was take out a little envelope and write her name with a lower case letter on it. She didn't know this, but Position knows how to accept messages for each of the four orientation objects that he knows about right now: north, east, south and west.</p>
 
-<p>The message she received from Gizmo required her to return the position that is directly in front of her. If North was here instead, the position in front of him would be different because he would be facing in a different direction.</p>
+<p>She sent her message to Position and waiting for him to return the result so that she could give it back to Gizmo.</p>
 
-<p>West 
+<h3>Position receives West's 'west' message.</h3>
+
+<p>Gingerly taking the message that West just passed to him, Position looked carefully at the name to make sure he was about to carry out the right task.</p>
+
+<p>It was his responsibility to find out what the position directly in front of West was. None of the other objects knew this, but position was really good at Math and always used it to help him carry out his tasks. He loved sending messages to number objects. He hoped that one day he would learn how to write more complicated Mathematical messages (as long as they were still simple to read).</p>
+
+<p>The entire surface area of the planet Objectlin was covered by a fine grid of one by one squares. A Rover like Gizmo could navigate this grid by the help of his friends and collegues - the orientation objects and the position objects.</p>
+
+<p>When Position was first assigned to Gizmo's position drawer, he came ready built with an x and y value. The x value represented one of the positions along the horizontal axis along the grid that covered the planet. The y value represented one of the positions along the vertical axis of the grid.</p>
+
+<p>Position didn't know how big the grid was. He just knew exactly where he was on it. This made the problem of finding out what is directly in front of him pretty interesting, because he wasn't able to move himself. What he could do, was send a message to the class he was made from and tell it to create a new Position object directly in front of him.<p>
+
+<p>So position took out two small white envelopes. Ordinarily, he would be estatic over getting to write so many messages, but this required a lot of concentration. He would celebrate later.</p>
+
+<p>He addressed the first envelope to the his very own 'x' drawer, which would be received by the Number object that currently occupied it.</p>
+
+<p>The message would be a simple '-' sign, and the envelope would contain another Number object that had a value of 1. This message would return a new Number object that contained the value of the Number contained in the 'x' drawer with 1 subtracted from it. This new Number would replace the current number occupying the x drawer.</p>
+
+<p>The other message was addressed to his 'y' drawer, which would also be received by the Number object currently occupying it. The odd thing about this message is that it would end up replacing the current Number object occupying the y drawer, with another Number object with the exact same value as the old one.</p>
+
+<p>Then Position tied those messages together and sent the bundle of two messages to the class object that he was made from. The class would create a new instance of Position with it's x and y drawers containing the Number objects given as arguments inside of the two bundled messages.</p>
+
+<p>Finally, position would return this new object to West (who didn't even realise she was chatting to a different Position object).</p>
+
+<p>West would then complete her own message by returning the new Position back to Gizmo.</p>
+
+<p>Gizmo would then replace the current Position in his position drawer with the new Position that he had just been given. After doing this, he would find himself suddenly one square in front of where he was before, with a closer view of the Sushi object Restaurant object that he kept daydreaming about.</p>
 
 
 <h2>ROVER OBJECT</h2>
