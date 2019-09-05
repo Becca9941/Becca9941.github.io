@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Link can equip items, state design pattern in Java
+title: Link can equip items, strategy design pattern in Java
 ---
 
 <p>After reading the first chapter of <a href="" target="_blank">Head First Design Patterns</a>, I decided to try and implement the Strategy Pattern I learned about by writing my own program in Java. I haven't actually tested this in an editor yet because Java isn't set up on my computer. Literally just wrote this out here.</p>
@@ -37,7 +37,7 @@ public abstract class Character {
 <ul>
   <li>First I created an abstract class called Character, that all of my Legend of Zelda characters will inherit from. One of the design principles (not patterns) is to favour composition over inheritance. I understand this to mean delegate the behaviour of your object to other objects as much as possible. In this case, all of my characters eat and sleep and introduce themselves, so it's better for them to inherit these because they never change (though will have to reconsider if I want a Navi character who can't eat).</li>
   <li>I defined the introduction method as an abstract method. All of the characters will be introducing themselves differently, so the implementation code for the introduction method will be defined within their individual instances (polymorphism).</li>
-  <li>Now for the state pattern. The Character class has an instance variable called 'item', which accepts any object that has the type 'Item'. We also have a setter method which allows the character object to swap out the current item (if there is one) for a different item.</li>
+  <li>Now for the strategy pattern. The Character class has an instance variable called 'item', which accepts any object that has the type 'Item'. We also have a setter method which allows the character object to swap out the current item (if there is one) for a different item.</li>
   <li>Finally, the character class has a method called 'useItem()', which gets the item currently stored in the 'item' instance variable and calls the 'use()' method on it. Just like each Character introduce themselves in unique ways, each item has it's own way of behaving when it is being used.</li>
 </ul>
 
@@ -92,7 +92,7 @@ public interface Item {
 </pre>
 
 <ul>
-  <li>This is where the state pattern comes into play. We want our characters to have the ability to use items (or not), but we don't want all characters to be able to use all of the items. The items a character can use varies from character to character (unlike eating and sleeping). The items themselves are all related. They can all be used by the characters to accomplish something. So while we don't want some characters to use some items, theoretically, they could use them because they are all interchangable.</li>
+  <li>This is where the strategy pattern comes into play. We want our characters to have the ability to use items (or not), but we don't want all characters to be able to use all of the items. The items a character can use varies from character to character (unlike eating and sleeping). The items themselves are all related. They can all be used by the characters to accomplish something. So while we don't want some characters to use some items, theoretically, they could use them because they are all interchangable.</li>
   <li>With link specifically, it would be great to let him equip items and use them multiple times during the run time of the game. Doing this dynamically would be much better than having to hard code the entire sequence. The state pattern is one way to achieve this.</li>
   <li>Most of the time, we don't recognise behaviour that varies until requirements change a few times and we realise we are always modifying a few sets of behaviours. So this example is deceptively simple, but demonstrates the ideas well enough.</li>
   <li>To create items that are interchangeable, we first need an interface called 'Item'. The interface is an abstraction that best describes the a related group of behaviours. In this case, all of the things our characters can 'use' are best represented by the abstraction 'Item' (helps that this is the language used in the game). Just like the abstract class and abstract methods, the interface contains no implementation code. It is a contract for what we want our implementation classes to do. In this case, we want all of our Items to be used, so we create a method called 'use()'. When called, it'll read 'item.use()', which reads pretty well.</li>
