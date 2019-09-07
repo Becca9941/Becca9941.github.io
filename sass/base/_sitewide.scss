@@ -22,6 +22,12 @@ body {
 
 }
 
+.mobile-screen {
+  max-width: 340px;
+  max-height: 640px;
+  box-shadow: 1px 3px 3px lightgrey;
+}
+
 @media only screen and (max-width: 780px) {
   .introduction {
     .dev-journal-img {
