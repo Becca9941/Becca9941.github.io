@@ -25,11 +25,11 @@ title: android basics user interface
 
 <pre>
 <code>
-<TextView
+&lt;TextView
   android:text="Happy Birthday!"
   android:background="@android:color/darker_gray"
   android:layout_width="150dp"
-  android:layout_height="75dp" />
+  android:layout_height="75dp" /&gt;
 </code>
 </pre>
 
@@ -41,7 +41,7 @@ title: android basics user interface
 
 <pre>
 <code>
-<TextView
+&lt;TextView
     android:text="Happy Birthday, Berry Boo!"
     android:background="@android:color/darker_gray"
     android:layout_width="wrap_content"
@@ -49,7 +49,7 @@ title: android basics user interface
     android:textSize="36sp"
     android:textColor="@android:color/black"
     android:padding="20dp"
-    />
+    /&gt;
 </code>
 </pre>
 
@@ -67,4 +67,45 @@ title: android basics user interface
 
 <p>You can find a bunch of conversion tables that show you how to convert font-size and letter spacing units <a href="https://material.io/design/typography/#type-scale" target="_blank">here</a></p>
 
-<p>Ah, while this is all awesom, have just gone down a rabbit hole. Kotlin is awesome and I want to learn it and android properly. I need to set up a kotlin developer environment. But don't need to know how to build an interface just yet, so will skip to the dev environment setup part for now..</p>
+<h2>Linear Layout</h2>
+
+<p>This layout lets you position elements in a horizontal or vertical sequence. The code below contains a parent view that uses the linear layout. The linear layout parent contains two text views which are displayed one on top of the other.</p>
+
+<pre>
+<code>
+&lt;LinearLayout
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"&gt;
+
+    &lt;TextView
+        android:text="Guest List"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" /&gt;
+
+    &lt;TextView
+        android:text="Berry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" /&gt;
+
+</LinearLayout>
+</code>
+</pre>
+
+<p>The default orientation for the linear layout is horizontal for a row, which can be denoted by the 0 value.</p>
+
+<p>To get a vertical, column based layout, you can change the orientation to 'vertical' which is denoted by the 1 value. In XML, for a vertical layout, you would add the following attribute to the layout view <code>androii:orientation="vertical"</code></p>
+
+<p>The first line in the code above names the android namespace, which specifies that all of the code belongs to android, which is why all of the attributes start with the word 'android'. This line should always be added as the first line of the root view for your layout.</p>
+
+<h3>Different widths</h3>
+
+<p>Setting different widths on child views can affect the final user interface layout.</p>
+
+<p>dp sets views to be a specific width. If the content is bigger then you run the risk of cutting the content short.</p>
+
+<p>Wrap content sets the width to match the size of the content inside of it.</p>
+
+<p>Match parent sets the width of the content te the same width as the parent view width.</p>
+
+<p>Whenever you see and attribute that starts with layout underscore 'layout_', these represent view group layout parameters. Attributes that do not start this way, like background and textSize for example, are handled by the view in terms of it's self instead of in relation to it's parent view.</p>
