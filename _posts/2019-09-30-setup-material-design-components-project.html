@@ -1,0 +1,26 @@
+---
+layout: post
+title: Building Book Collection Page from Design, guided by Material guidelines
+---
+
+<p>In writing...</p>
+
+<p>I'm going to document my process for building the following Book Collection page I designed following Google's <a href="https://material.io/" target="_blank">Material Design Guidelines.</a></p>
+
+<img src="/assets/img/book-collection-page.png" alt="Screenshot of book collection page design: A screen with guideline elements, a clean screen and a styleguide screen">
+
+<p>When building any project, I am guided by a bunch of values and principles which float just beneath the surface of every decision, much like you general principles and values.</p>
+
+<h2>Principles and values driving this project</h2>
+
+<ul>
+  <li>Intent: Every single thing I do or use has an explicit reason. If you ask me about why I used an element, designed it that way, positined it there etc, I'll be able to tell you. If I can't (which sometimes happens), then that becomes a priority to look-up or learn right away. This also allows other people to offer alternatives if they have a different opinion, which is a really useful conversation that can help each other grow and get better.</li>
+  <li>ETC (Easy to change?): All code is temporary. Either it becomes obsolete or needs to adapt. In this page for example, the type of book I am talking about might change, the quotes used to describe them might change, the category chips might change, the color scheme, the typography etc. My aim has been to make these changes as easy as possible. If something needs to be removed, it won't break anything else.</li>
+  <li>Accessibility: Extremely high priority. This is an overwhelming, in-depth field. So I start with what I have and one by one make sure everything exceeds accessibility criteria. By default all of your semantics have to be great to meet these. Also good for SEO but that is never a priority, accessibility is.</li>
+  <li>DRY (Don't Repeat Yourself): Similar to ETC in that you look for places of variability and seek to reduce those. In back-end languages, I follow the rule of three which is where you remove duplication when you notice three instances of something trying to do the same thing (even if their expression is not the same). In user-interface projects - usually CSS, I follow the rule of two. If I use two of the same thing, I look for ways to remove duplication. This is why I use Sass, it's a lot more flexible when it comes to removing duplication.</li>
+  <li>Minimalism: Every element and style rule used must either be essential or spark joy to the user. E.g. The button has a smooth ripple effect when the user hovers over them. The ripple starts near where the mouse clicked the button. This took a lot of work, and is an embellishment that improves the experience of clicking a button. Similarly, when the user resizes the page, the responsive behaviour is seamless, no jumpiness. This will only be seen when the user resizes, not just by using a different device.</li>
+  <li>Consistency: If there is a choice to be made, there is an underlying rule (flexible) to support it. I created a styleguide before designing the screen we are building, which details visual elements like typography, color, elevation, border radius and even spacing (margin/padding). All of these were informed by Google's Material Design guidelines. Some rules are meant to be broken though, but this is more obvious with experience. For example, I used a grid to design mobile/tablet/desktop layouts pixel perfect, but use a content-first breakpoint approach to responsiveness for fluidity, with the grid as a loose guideline.</li>
+  <li>Quality: Above and beyond with the knowledge I hold. I'm a developer because I adore the craft and want to be a master-level crafter just like a master wood carver. Not to be better than anyone else, but to push the limits and make things that are truly beautiful as well as useful.</li>
+</ul>
+
+<p>NOTE: These are the principles and values that drive my approach to this and many of my projects. They change from project to project (usually more are added). My underlying approaches for each of these things also change, usually as I encounter 'better' ways of doing things.</p>
