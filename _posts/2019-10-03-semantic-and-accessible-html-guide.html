@@ -64,6 +64,8 @@ title: Part 1 - Principles, and converting a design into semantic and accessible
 
 <p>I also like to add a viewport meta tag to my HTML boilerplate, which sets the zoom level when the page is loaded for the first time, so it is consistent across all devices. Without this, the variation between viewport sizes can cause your content to look buggy. You can solve this with a good responsive design, but it is useful to put in place and works especially well for typography.</p>
 
+<p>I also added a character encoding meta tag which supports many languages, as well an author and description meta tags.</li>
+
 <h2>My HTML boilerplate</h2>
 
 <pre>
@@ -220,48 +222,7 @@ title: Part 1 - Principles, and converting a design into semantic and accessible
 
 <p>A major benefit of seperating the structure from the style like this is so that the styles are easy to change. For example, if you change the name of a style-based class, e.g. <code>.button--raised</code>, then you would have to change all of the class name mentions in your HTML. This way, you just need to change <code>.visitPageCTA { @extend .button--raised; }</code> to <code>.visitPageCTA { @extend .button--different; }</code>, without touching your HTML at all.</p>
 
-<pre>
-<code>
-&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-  &lt;head&gt;
-    &lt;title&gt;Title&lt;/title&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;link rel="stylesheet" href="css/style.css"&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-
-    &lt;a href="#mainContent" class="skipToMain"&gt;Skip to Main content&lt;/a&gt;
-
-    &lt;header&gt;
-      &lt;h1 class="main-title"&gt;Book Collection&lt;/h1&gt;
-      &lt;p&gt;Whenever you read a book, experiment with the ideas in them. They have the power to change your life, if you take action.&lt;/p&gt;
-    &lt;/header&gt;
-
-    &lt;main id="mainContent" tabindex="-1"&gt;
-
-      &lt;div class="categories"&gt;
-        &lt;button class="categories__filter active"&gt;Tech&lt;/button&gt;
-        &lt;button class="categories__filter"&gt;Design&lt;/button&gt;
-        &lt;button class="categories__filter"&gt;Life-Strategies&lt;/button&gt;
-        &lt;button class="categories__filter"&gt;Tools&lt;/button&gt;
-      &lt;/div&gt;
-
-      &lt;article class="book-info"&gt;
-        &lt;header&gt;
-          &lt;h1 class="book-info__title"&gt;The pragmatic Programmer&lt;/h1&gt;
-          &lt;p class="book-info__authors"&gt;David Thomas and Andrew Hunt&lt;/p&gt;
-          &lt;button class="share"&gt;&lt;i class="material-icons"&gt;share&lt;/i&gt;&lt;/button&gt;
-        &lt;/header&gt;
-        &lt;img class="book-info__cover"src="img/book-prag-prog.svg" alt="Book cover"&gt;
-        &lt;p class="book-info__quote"&gt;&lt;q&gt;Kaizen&lt;/q&gt; is a Japanese term that captures the concept of continuously making many small improvements.&lt;/p&gt;
-        &lt;a class="goToPage" href="#"&gt;Read notes&lt;/a&gt;
-      &lt;/article&gt;
-    &lt;/main&gt;
-  &lt;/body&gt;
-&lt;/html&gt;
-</code>
-</pre>
+<img src="/assets/img/semantic-html.png" alt="code snippet semantic html">
 
 <p>All of the class names above are semantic in that they describe the content of the page without revealing any style details. I'll go through them and explain my reasoning one by one.</p>
 
