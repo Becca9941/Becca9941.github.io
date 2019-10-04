@@ -21,7 +21,7 @@ title: Exploring accessibility testing with Pa11y
   <li>pa11y has three types of messages: 1) A notice, which is a general message about an element's accessibility, like 'check that the title element describes the document.</li>
   <li>2) A warning, which is something that <em>could</em> be an issue, like an img with a null alt attribute will show 'Warning: Img element is marked so that it is ignored by Assistive Technology".</li>
   <li>3) An error, which is a critical issue that should be fixed. For example, an error you may receive on an unlabelled input is "Error: This text input element does not have a name available to an accessibility API".</li>
-  <li>You can ignore notices and warnings by using the ignor flag like this: <code>pa11y url --ignore "warning;notice"</li>
+  <li>You can ignore notices and warnings by using the ignor flag like this: <code>pa11y url --ignore "warning;notice"</code></li>
   <li>You can set a threshold number, which is the number of critical errors that should be permitted in order to 'pass' the accessibility tag (0 is the priority). <code>pa11y url --threshold 0</code></li>
   <li>You can hide elements like third party widgets that you have no control over like adds: <code>pa11y url --hide-elements "#adds .sc-only [aria-role='presentation']</code></li>
 </ul>
@@ -54,7 +54,7 @@ title: Exploring accessibility testing with Pa11y
 </pre>
 
 <ul>
-  <li>You can change the JSON file pa11y-ci looks for using the --config option: <code>pa11y-ci --config package.json</li>
+  <li>You can change the JSON file pa11y-ci looks for using the --config option: <code>pa11y-ci --config package.json</code></li>
   <li>You can output the accessibility tests to a json file, which is useful if you want to do things with the data: <code>pa11yci --reporter json url.com &gt; results.json</code></li>
   <li>Or output the tests into a csv file for processing or importing into a database: <code>pa11y --reporter csv web.com &gt; results.csv</code></li>
   <li>We can configure pa11y-ci to test a page using a specific standard. The default accessibility standard it uses is WCAG2AA, but we can also change it to: Section508, WCAG2A, WCAG2AA or WCAG2AA.</li>
