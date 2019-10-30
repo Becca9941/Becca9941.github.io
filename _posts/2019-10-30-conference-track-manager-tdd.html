@@ -9,15 +9,15 @@ title: Starting to get the hang of TDD, process walkthrough, yayyy!
 
 <p>The first question I am asking myself is, <strong>what is the most important thing to work on first?</strong> To discover the most important thing, you need to know the why behind the solution. So, in order to answer my first question, I need to ask a second. <strong>What is the primary purpose/goal/need that this solution seeks to solve?</strong></p>
 
-<p>I'll attempt to write a user story to help me with this. As a conference track manager, I want to fit our speakers who have different length talks into our conference schedule, so that the scheduling process is less complicated.</p>
+<p>I'll attempt to write a user story to help me with this. As an event manager, I want to fit our speakers who have different length talks into our timetable, so that the organisation process is less complicated.</p>
 
 <p>Hmm, I don't like this one. Will try again.</p>
 
-<p>As a conference organiser, I want to organise talks, so that we can fit different length talks into a multi-day schedule.</p>
+<p>As an event organiser, I want to organise workshops, so that we can fit different length walkshops into a multi-day timetable.</p>
 
 <p>That's better, not sure if it's 'right', but it's something to work on.</p>
 
-<p>Okay, so the most important thing is organising talks by length. In fact, the talks isn't even the most important thing here. Fitting items into a box is. In this case, the items are minutes and the box is time. We have two time boxes, morning and afternoon. But that's also not important. We need one box, and items to go in it. So that's where we'll start.</p>
+<p>Okay, so the most important thing is organising workshops by length. In fact, the workshop isn't even the most important thing here. Fitting items into a box is. In this case, the items are minutes and the box is time. We have two time boxes, morning and afternoon. But that's also not important. We need one box, and items to go in it. So that's where we'll start.</p>
 
 <h2>Thinking in the abstract - Writing first tetris test</h2>
 
@@ -29,11 +29,11 @@ title: Starting to get the hang of TDD, process walkthrough, yayyy!
 
 <p>There are a few interesting thoughts this raises. First, we fit the tiles one by one into the box. Second, we look at the available space before we fit our tile into it. Third, we choose to place the tile in the area that seems to be the 'best fit' for it's shape.</p>
 
-<p>This is one of the awesome things about abstract concepts. They give you lots of idea hooks. Some of these concepts might be a very close fit to the problem space, others may need a little tweaking. For example, the tiles (talk lengths) in our program don't have any fixed requirements to be placed in an area of best fit. So they can have gaps around them as long as they fit within the morning and afternoon time constraints.</p>
+<p>This is one of the awesome things about abstract concepts. They give you lots of idea hooks. Some of these concepts might be a very close fit to the problem space, others may need a little tweaking. For example, the tiles (workshop lengths) in our program don't have any fixed requirements to be placed in an area of best fit. So they can have gaps around them as long as they fit within the time constraints.</p>
 
 <p>That being said, just because it isn't a requirement, this could be an implementation strategy that could help us meet the requirements (or challenge them) in a different way. We'll probably change our design as we go along too, as we learn more about the problem and solution we are building. The main thing is that we have a great starting point.</p>
 
-<p>Okay, now for the first test part. I created a project folder called 'conference_planning'. Inside that folder I created another folder called 'spec' to contain all of our tests in Ruby using RSpect. Inside that folder I created and opened a file called 'conference-test.rb', which is the file that we are going to start adding tests to. It helps to start with one file. If we need to seperate our tests as we go along, we can, but only when it is <em>necessary</em>.</p>
+<p>Okay, now for the first test part. I created a project folder called 'event_planning'. Inside that folder I created another folder called 'spec' to contain all of our tests in Ruby using RSpect. Inside that folder I created and opened a file called 'event-test.rb', which is the file that we are going to start adding tests to. It helps to start with one file. If we need to seperate our tests as we go along, we can, but only when it is <em>necessary</em>.</p>
 
 <pre>
 <code>
