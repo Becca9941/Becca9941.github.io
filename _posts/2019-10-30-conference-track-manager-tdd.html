@@ -3,66 +3,7 @@ layout: post
 title: Starting to get the hang of TDD, process walkthrough, yayyy! 
 ---
 
-<h2>Problem</h2>
-
-<p>You are planning a big programming conference and have received many proposals which have passed the initial screen process but you're having trouble fitting them into the time constraints of the day ­­ there are so many possibilities! So you write a program to do it for you.</p>
-
-<ul>
-  <li>The conference has multiple tracks each of which has a morning and afternoon session.</li>
-  <li>Each session contains multiple talks.</li>
-  <li>Morning sessions begin at 9am and must finish by 12 noon, for lunch.</li>
-  <li>Afternoon sessions begin at 1pm and must finish in time for the networking event.</li>
-  <li>The networking event can start no earlier than 4:00 and no later than 5:00.</li>
-  <li>No talk title has numbers in it.</li>
-  <li>All talk lengths are either in minutes (not hours) or lightning (5 minutes).</li>
-  <li>Presenters will be very punctual; there needs to be no gap between sessions.</li>
-</ul>
-
-<h3>Test input</h3>
-
-<pre>
-<code>
-Writing Fast Tests Against Enterprise Rails 60min
-Overdoing it in Python 45min
-Lua for the Masses 30min
-Ruby Errors from Mismatched Gem Versions 45min Common Ruby Errors 45min
-Rails for Python Developers lightning Communicating Over Distance 60min Accounting­Driven Development 45min
-Woah 30min
-Sit Down and Write 30min
-Pair Programming vs Noise 45min
-Rails Magic 60min
-Ruby on Rails: Why We Should Move On 60min Clojure Ate Scala (on my project) 45min Programming in the Boondocks of Seattle 30min Ruby vs. Clojure for Back­End Development 30min Ruby on Rails Legacy App Maintenance 60min
-A World Without HackerNews 30min
-User Interface CSS in Rails Apps 30min
-</code>
-</pre>
-
-<h3>Test output</h3>
-
-<pre>
-<code>
-Test output:
-Track 1:
-09:00AM Writing Fast Tests Against Enterprise Rails 60min 10:00AM Overdoing it in Python 45min
-10:45AM Lua for the Masses 30min
-11:15AM Ruby Errors from Mismatched Gem Versions 45min 12:00PM Lunch
-01:00PM Ruby on Rails: Why We Should Move On 60min 02:00PM Common Ruby Errors 45min
-02:45PM Pair Programming vs Noise 45min
-03:30PM Programming in the Boondocks of Seattle 30min 04:00PM Ruby vs. Clojure for Back­End Development 30min 04:30PM User Interface CSS in Rails Apps 30min
-05:00PM Networking Event
-
-Track 2:
-09:00AM Communicating Over Distance 60min 10:00AM Rails Magic 60min
-11:00AM Woah 30min
-11:30AM Sit Down and Write 30min
-12:00PM Lunch
-01:00PM Accounting­Driven Development 45min 01:45PM Clojure Ate Scala (on my project) 45min 02:30PM A World Without HackerNews 30min
-03:00PM Ruby on Rails Legacy App Maintenance 60min 04:00PM Rails for Python Developers lightning
-05:00PM Networking Event
-</code>
-</pre>
-
-<p>I have solved this problem before, but my solution was pretty bad. I didn't know much about object-oriented programming or TDD. I know a little bit more now but still have a fair few gaps in knowledge and experience. So I'm going to solve it again, and then again once I have learned more. It's an iterative process. I'm expecting my solution attempt to be stumbly.</p>
+<p>I can't include the problem statement that I am attempting to solve here, because it was an interview problem. The aim of this is to capture the process of solving the problem.</p>
 
 <h2>First tiny step</h2>
 
