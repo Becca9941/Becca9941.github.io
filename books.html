@@ -1,0 +1,15 @@
+---
+layout: default
+title: Books
+permalink: /books/
+---
+{% for books in site.books %}
+  <article class="book_card">
+    <h1>{{ books.title }}</h1>
+    <p>{{ books.authors }}</p>
+    <blockquote>{{ books.quote }}</blockquote>
+    <img src="{{ books.img_url }}" alt="{{ books.title }} book cover">
+    <a href="https://twitter.com/home?status={{books.url}} The pragmatic programmer" target="_blank">Share</a>
+    <a href="{{ books.url }}">read more</a>
+  </article>
+{% endfor %}
