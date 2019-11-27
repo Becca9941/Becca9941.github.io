@@ -3,4 +3,6 @@ plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
 collections:
-  - books
+  books:
+    output: true
+    permalink: /books/:path
