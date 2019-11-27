@@ -9,7 +9,7 @@ permalink: /books/
     <p>{{ books.authors }}</p>
     <blockquote>{{ books.quote }}</blockquote>
     <img src="{{ books.img_url }}" alt="{{ books.title }} book cover">
-    <a href="https://twitter.com/home?status={{books.url}} The pragmatic programmer" target="_blank">Share</a>
+    <a href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.url }}{{ books.url }}&via=becca9941&related=becca9941" rel="nofollow" target="_blank" title="Share on Twitter">Share</a>
     <a href="{{ books.url }}">read more</a>
   </article>
 {% endfor %}
