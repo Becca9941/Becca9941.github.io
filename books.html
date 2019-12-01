@@ -3,13 +3,24 @@ layout: default
 title: Books
 permalink: /books/
 ---
+<article class="books-intro">
+  <h1 class="books-intro__title">Book Notes</h1>
+  <p class="books-intro__intro">Whenever you read a book, experiment with the ideas in them. They have the power to change your life, if you take action.</p>
+  <section class="filter-chips">
+    <div class="filter-chip active">Tech</div>
+    <div class="filter-chip">Design</div>
+    <div class="filter-chip">Life-Strategies</div>
+    <div class="filter-chip">Tools</div>
+  </section>
+</article>
+
 {% for books in site.books %}
   <article class="book_card">
-    <h1>{{ books.title }}</h1>
-    <p>{{ books.authors }}</p>
-    <blockquote>{{ books.quote }}</blockquote>
-    <img src="{{ books.img_url }}" alt="{{ books.title }} book cover">
-    <a href="https://twitter.com/intent/tweet?text=[What is your favourite takeaway from {{ books.title }}]&url={{ site.url }}{{ books.url }}&via=becca9941&related=becca9941" rel="nofollow" target="_blank" title="Share on Twitter">Share</a>
-    <a href="{{ books.url }}">read more</a>
+    <h1 class="book-card__title">{{ books.title }}</h1>
+    <p class="book_card__authors">{{ books.authors }}</p>
+    <blockquote class="book_card__quote">{{ books.quote }}</blockquote>
+    <img class="book_card__book-cover" src="{{ books.img_url }}" alt="{{ books.title }} book cover">
+    <a class="book_card__share-twitter" href="https://twitter.com/intent/tweet?text=[What is your favourite takeaway from {{ books.title }}]&url={{ site.url }}{{ books.url }}&via=becca9941&related=becca9941" rel="nofollow" target="_blank" title="Share on Twitter">Share</a>
+    <a class="book_card__go-to-page" href="{{ books.url }}">read more</a>
   </article>
 {% endfor %}
