@@ -56,12 +56,13 @@
     color: #4d4d4d;
     border: none;
     outline: transparent;
-    text-transform: uppercase;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: bold;
     height: 1.5rem;
     cursor: pointer;
-    padding-right: .5rem; }
+    padding-right: 1rem;
+    text-decoration: none;
+    margin-top: .5rem; }
     .navigation .show-site-links:hover span:first-child {
       color: #9DFA94; }
     .navigation .show-site-links:hover span:nth-child(2) {
@@ -85,7 +86,7 @@
   position: absolute;
   bottom: 0;
   width: 100%;
-  background-color: rgba(77, 77, 77, 0.1); }
+  background-color: rgba(77, 77, 77, 0.2); }
   .progress .bar {
     width: 1%;
     height: 4px;
@@ -115,6 +116,9 @@ body {
 
 .hidden {
   display: none; }
+
+.main-title {
+  margin-top: 2rem; }
 
 .introduction {
   padding: .2rem;
