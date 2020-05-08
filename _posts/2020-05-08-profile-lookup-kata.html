@@ -1,5 +1,5 @@
 ---
-default
+layout: default
 ---
 
 <p>Another JavaScript challenge on <a href="https://www.freecodecamp.org/" target="_blank">Free Code Camp</a>!</p>
@@ -23,7 +23,7 @@ default
 <pre>
 <code>
 function lookUpProfile(name, prop){
-  const contact = contacts.find((aContact) => aContact.firstName == name);
+  const contact = contacts.find((aContact) =&gt; aContact.firstName == name);
   if(!contact) { return "No such contact"; }
   if(!contact.hasOwnProperty(prop)) { return "No such property"; }
 
@@ -40,7 +40,7 @@ function lookUpProfile(name, prop){
 <pre>
 <code>
 function lookUpProfile(name, prop){
-  for(var i = 0; i < contacts.length; i++) {
+  for(var i = 0; i &lt; contacts.length; i++) {
     var contact = contacts[i];
     if(contact.firstName == name) {
         if(contact.hasOwnProperty(prop)) {
