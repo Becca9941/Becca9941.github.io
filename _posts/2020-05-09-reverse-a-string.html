@@ -1,0 +1,25 @@
+---
+layout: post
+---
+
+<h2>Problem Statemest</h2>
+
+<p>Reverse the provided string.</p>
+
+<p>You may need to turn the string into an array before you can reverse it.</p>
+
+<p>Your result must be a string.</p>
+
+<h2>Solution</h2>
+
+<p>Not much to this one. When I didn't include the quotes in .join(), the string had commas between each letter in the string. The quotes joined them with nothing in between the letters.</p>
+
+<pre>
+<code>
+function reverseString(str) {
+  return Array.from(str).reverse().join('');
+}
+
+reverseString("hello");
+</code>
+</pre>
