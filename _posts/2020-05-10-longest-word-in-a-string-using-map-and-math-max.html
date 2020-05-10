@@ -14,10 +14,13 @@ layout: post
 
 <p>The map method calls a function on every element in an array, and creates a new array the same length of the original array with the transformed values. In this case, we are creating a new array with the word lengths of each or the words in our original array. The math.max function returns the biggest of these numbers - so only a single result is returned.</p>
 
+<p>I posted my original solution on Twitter, and a friend pointed out that this wouldn't work for sentences that have non-alphanumeric characters. So happy they pointed that out, so added a regex to remove non-alphanumeric characters before splitting into words.</p>
+
 <pre>
 <code>
 function findLongestWordLength(str) {
 
+  str.replace(/\W/g, '');
   const words = str.split(" ");
 
   return Math.max(...words.map(word =&gt; word.length));
