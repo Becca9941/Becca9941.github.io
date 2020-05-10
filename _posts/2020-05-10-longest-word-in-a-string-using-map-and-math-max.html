@@ -52,3 +52,25 @@ function findLongestWordLength(str) {
 findLongestWordLength("The quick brown fox jumped over the lazy dog");
 </code>
 </pre>
+
+<h2>Largest number in each sub array</h2>
+
+<p>In the kata immediately following the one above, I was able to apply what I just learned to the new problem, which was an extremely satisfying feeling.</p>
+
+<h3>Problem statement</h3>
+
+<p>Return an array consisting of the largest number from each provided sub-array. For simplicity, the provided array will contain exactly 4 sub-arrays.</p>
+
+<p>Remember, you can iterate through an array with a simple for loop, and access each member with array syntax arr[i].</p>
+
+<h3>Solution</h3>
+
+<pre>
+<code>
+function largestOfFour(arr) {
+  return arr.map(largest_num =&gt; Math.max(...largest_num));
+}
+
+largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]);
+</code>
+</pre>
