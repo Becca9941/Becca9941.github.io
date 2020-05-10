@@ -39,14 +39,13 @@ function findLongestWordLength(str) {
 
   const words = str.split(" ");
 
-  const longest_word = words.reduce(function(a,b) {
-    return a.length &gt; b.length ? a : b;
+  const longest_word = words.reduce(function(word1,word2) {
+    return word1.length &gt; word2.length ? word1 : word2;
   });
 
   return longest_word.length;
 }
 
 findLongestWordLength("The quick brown fox jumped over the lazy dog");
-
 </code>
 </pre>
