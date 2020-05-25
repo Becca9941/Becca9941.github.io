@@ -1,5 +1,6 @@
 ---
 layout: post
+title: JavaScript Rest Parameter, Spread Operator and Default Values
 ---
 
 <p>Working through <a href="https://pragprog.com/book/ves6/rediscovering-javascript" target="_blank">Rediscovering JavaScript: Master ES6, ES7 and ES8</a>.</p>
@@ -15,6 +16,8 @@ return values.reduce((large, e) =&gt; large &gt; e ? large : e, values[0]);
 };
 </code>
 </pre>
+
+<p>There must only be one rest parameter, and it must be the last one in the argument list if present. Rest parameters must also be empty arrays, we get an error if we try to give it a default value.</p>
 
 <h2>The Spread Operator</h2>
 
@@ -66,4 +69,6 @@ console.log(sortByTitle(books, false));
 
 <p>Hmm, I don't like the thought of mixing default and non-default parameters...</p>
 
+<h2>Expressions as Default Values</h2>
 
+<p>We can also use expressions as default argument values. That's pretty cool, though I'm not sure I like that either. Seems like something the body of the function should handle, though there might be use-cases where it does come in handy, just don't know those yet.</p>
