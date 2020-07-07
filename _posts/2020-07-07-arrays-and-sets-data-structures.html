@@ -109,3 +109,15 @@ longArrayOf()
 </ul>
 
 <p>Performance steps in worst case scenario where each operation is performed only once: 17 steps</p>
+
+<h2>Sets</h2>
+
+<p>Sets are just like arrays, except sets are arrays that contain no duplicate values. For example, you wouldn't want a phone book that lists your phone number twice for different people.</p>
+
+<p>The performance for a set is the same as an array in all operations except for the insertion operation.</p>
+
+<p>If we want to add an item to our shopping list which is stored in a set, we would first have to check to see whether the item already exists in the array by checking all of the indexes for the value, then shift all elements following the insertion index to the left by one, and finally insert your element in the newly emptied index.</p>
+
+<p>If we wanted to insert an element to the start of our set, the performance would be 2N + 1.</p>
+
+<p>In this case, we know that the array would be more efficient, but in the case of a phone book application, the set would be better despite the performance tradeoff for the insertion operation.</p>
